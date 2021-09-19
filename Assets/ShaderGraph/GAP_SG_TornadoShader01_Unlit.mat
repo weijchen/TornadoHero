@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GAP_SG_TornadoShader01_Unlit
+  m_Shader: {fileID: -6465566751694194690, guid: 27cb45d857644924883b05d6d0194f2c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_36FFDB45: 0.5
+    - Vector1_5493FF10: 2
+    - Vector1_6FD920D: 0.025
+    - Vector1_C1B5FF09: 0.05
+    - Vector1_E167C4D0: 40
+    - Vector1_E8E3FDF5: 1
+    - Vector1_ED0F10FE: 1
+    - Vector1_F82D365: 0.815
+    m_Colors:
+    - Color_98BAF229: {r: 4.43787, g: 6.7853484, b: 8.301428, a: 0}
+    - Vector2_6208BDB4: {r: -1, g: -0.5, b: 0, a: 0}
+    - Vector2_7E530635: {r: -1, g: 0.5, b: 0, a: 0}
+    - Vector2_DA9B1676: {r: 0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []
