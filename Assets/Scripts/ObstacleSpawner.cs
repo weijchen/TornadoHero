@@ -7,25 +7,22 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] float spawnTime = 2.0f;
 
-    private bool isSpawning;
-    
-    void Start()
-    {
-        isSpawning = false;
-        StartCoroutine(SpawnObstacle(spawnTime));
-    }
-
     IEnumerator SpawnObstacle(float timeBetween)
     {
-        while (isSpawning)
+        while (true)
         {
-            Instantiate(obstaclePrefab, transform);
+            SpawnObstacle();
             yield return new WaitForSeconds(timeBetween);
         }
     }
     
-    public void SetIsSpawn(bool state)
+    public void SpawnObstacle()
     {
-        isSpawning = state;
+        Instantiate(obstaclePrefab, transform);
+    }
+    
+    public void SpawnObstacleContinuous()
+    {
+        StartCoroutine(SpawnObstacle(spawnTime));
     }
 }

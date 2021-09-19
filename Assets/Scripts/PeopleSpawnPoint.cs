@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PeopleSpawnPoint : MonoBehaviour
 {
@@ -11,40 +13,42 @@ public class PeopleSpawnPoint : MonoBehaviour
     [SerializeField] float destroyTime = 20.0f;
 
     private PlayerManager _playerManager;
-    private bool isSpawning;
     
     void Start()
     {
-        isSpawning = false;
         _playerManager = FindObjectOfType<PlayerManager>();
-        StartCoroutine(SpawnPeople(spawnTime));
     }
 
     IEnumerator SpawnPeople(float timeBetween)
     {
-        while (isSpawning)
+        while (true)
         {
-            Vector3 offset = Vector3.zero;
-            float randomXOffset = Random.Range(-maxXOffset, maxXOffset);
-            offset += new Vector3(randomXOffset, 0, 0);
-            
-            Vector3 spawnPosition = transform.position;
-            spawnPosition.x = (transform.position + offset).x;
-            
-            GameObject people = Instantiate(peoplePrefab, spawnPosition, Quaternion.identity);
-            Invoke("DestroyPrefab", destroyTime);
-            Destroy(people, destroyTime);
+            SpawnPeople();
             yield return new WaitForSeconds(timeBetween);
         }
+    }
+
+    public void SpawnPeople()
+    {
+        Vector3 offset = Vector3.zero;
+        float randomXOffset = Random.Range(-maxXOffset, maxXOffset);
+        offset += new Vector3(randomXOffset, 0, 0);
+        
+        Vector3 spawnPosition = transform.position;
+        spawnPosition.x = (transform.position + offset).x;
+        
+        GameObject people = Instantiate(peoplePrefab, spawnPosition, Quaternion.identity);
+        Invoke("DestroyPrefab", destroyTime);
+        Destroy(people, destroyTime);
+    }
+
+    public void SpawnPeopleContinuous()
+    {
+        StartCoroutine(SpawnPeople(spawnTime));
     }
 
     private void DestroyPrefab()
     {
         _playerManager.AddDeadAmount();
-    }
-
-    public void SetIsSpawn(bool state)
-    {
-        isSpawning = state;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private ObstacleSpawner _obstacleSpawner;
     private int barrelHitInTutorial = 0;
     private float gameTimer = 0;
+    private bool obstacleIsSpawning = false;
 
     [SerializeField] private GameObject instructionPanel;
 
@@ -54,12 +56,12 @@ public class GameManager : MonoBehaviour
                 if (tutorialStep == 0)
                 {
                     instructionPanel.transform.GetChild(0).gameObject.SetActive(true);
-                    timer += Time.deltaTime;
                     if (timer > 3)
                     {
                         tutorialStep += 1;
                         timer = 0;
                     }
+                    timer += Time.deltaTime;
                 } 
                 // Press [Right Trigger] to spawn Hook
                 else if (tutorialStep == 1)
@@ -96,26 +98,39 @@ public class GameManager : MonoBehaviour
                 {
                     instructionPanel.transform.GetChild(3).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(4).gameObject.SetActive(true);
-                    _peopleSpawnPoint[0].SetIsSpawn(true);
+                    
                     if (_playerManager.GetSavedAmount() == 1)
                     {
+                        timer = 0;
                         tutorialStep += 1;
-                        _peopleSpawnPoint[0].SetIsSpawn(false);
+                    } else
+                    {
+                        if (timer > 10)
+                        {
+                            timer = 0;
+                        }
+                        else if (timer == 0)
+                        {
+                            _peopleSpawnPoint[0].SpawnPeople();
+                        }
                     }
+                    timer += Time.deltaTime;
                 } 
                 // A barrel is coming!
                 else if (tutorialStep == 5)
                 {
                     instructionPanel.transform.GetChild(4).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(5).gameObject.SetActive(true);
-                    _obstacleSpawner.SetIsSpawn(true);
-                    timer += Time.deltaTime;
-                    if (timer > 5)
+                    
+                    if (timer > 6)
                     {
-                        tutorialStep += 1;
                         timer = 0;
-                        _obstacleSpawner.SetIsSpawn(false);
+                        tutorialStep += 1;
+                    } else if (timer == 0)
+                    {
+                        _obstacleSpawner.SpawnObstacle();
                     }
+                    timer += Time.deltaTime;
                 } 
                 // Put both your controllers closer and align them.
                 else if (tutorialStep == 6)
@@ -135,6 +150,7 @@ public class GameManager : MonoBehaviour
                     if (!_playerManager.canSpawnBat)
                     {
                         tutorialStep -= 1;
+                        instructionPanel.transform.GetChild(7).gameObject.SetActive(false);
                     }
                     if (leftHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) && triggerValue)
                     {
@@ -156,12 +172,26 @@ public class GameManager : MonoBehaviour
                 {
                     instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(9).gameObject.SetActive(true);
-                    _obstacleSpawner.SetIsSpawn(true);
+
+                    Debug.Log(timer);
                     if (barrelHitInTutorial > 0)
                     {
+                        timer = 0;
                         tutorialStep += 1;
-                        _obstacleSpawner.SetIsSpawn(false);
+                    } 
+                    else
+                    {
+                        if (timer > 10)
+                        {
+                            _obstacleSpawner.SpawnObstacle();
+                            timer = 0;
+                        }
+                        else if (timer == 0)
+                        {
+                            _obstacleSpawner.SpawnObstacle();
+                        }
                     }
+                    timer += Time.deltaTime;
                 } 
                 // You're all set! Let's start!
                 else if (tutorialStep == 10)
@@ -174,13 +204,14 @@ public class GameManager : MonoBehaviour
                         tutorialStep += 1;
                         timer = 0;
                     }
-                } else if (tutorialStep == 11)
+                } 
+                else
                 {
                     foreach (var point in _peopleSpawnPoint)
                     {
-                        point.SetIsSpawn(true);
+                        point.SpawnPeopleContinuous();
                     }
-                    _obstacleSpawner.SetIsSpawn(true);
+
                     _playerManager.InitiateState();
                     instructionPanel.transform.GetChild(10).gameObject.SetActive(false);
                     isTutorialDone = true;
@@ -189,6 +220,14 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                if (gameTimer < 30)
+                {
+                    if (!obstacleIsSpawning)
+                    {
+                        _obstacleSpawner.SpawnObstacleContinuous();
+                    }
+                    obstacleIsSpawning = true;
+                }
                 gameTimer -= Time.deltaTime;
             }
             
