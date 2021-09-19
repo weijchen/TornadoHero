@@ -11,16 +11,18 @@ public class PeopleSpawnPoint : MonoBehaviour
     [SerializeField] float destroyTime = 20.0f;
 
     private PlayerManager _playerManager;
+    private bool isSpawning;
     
     void Start()
     {
+        isSpawning = false;
         _playerManager = FindObjectOfType<PlayerManager>();
         StartCoroutine(SpawnPeople(spawnTime));
     }
 
     IEnumerator SpawnPeople(float timeBetween)
     {
-        while (true)
+        while (isSpawning)
         {
             Vector3 offset = Vector3.zero;
             float randomXOffset = Random.Range(-maxXOffset, maxXOffset);
@@ -39,5 +41,10 @@ public class PeopleSpawnPoint : MonoBehaviour
     private void DestroyPrefab()
     {
         _playerManager.AddDeadAmount();
+    }
+
+    public void SetIsSpawn(bool state)
+    {
+        isSpawning = state;
     }
 }

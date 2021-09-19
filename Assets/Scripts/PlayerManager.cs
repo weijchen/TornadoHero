@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     private int deadAmount = 0;
     private bool isStunned = false;
     private float accumTime = 0f;
+    public bool canSpawnBat = false;
 
     void Update()
     {
@@ -37,6 +38,12 @@ public class PlayerManager : MonoBehaviour
     public int GetDeadAmount()
     {
         return deadAmount;
+    }
+
+    public void InitiateState()
+    {
+        savedAmount = 0;
+        deadAmount = 0;
     }
 
     public void TurnStunned()

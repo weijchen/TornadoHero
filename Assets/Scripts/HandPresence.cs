@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -11,10 +11,11 @@ public class HandPresence : MonoBehaviour
     [SerializeField] InputDeviceCharacteristics controllerCharacteristics;
     [SerializeField] List<GameObject> controllerPrefabs;
     [SerializeField] GameObject handModelPrefab;
-    [SerializeField] PlayerManager playerManager;
+    [SerializeField] PlayerManager _playerManager;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] GameObject batPrefab;
 
+    private GameManager _gameManager;
     private Vector3 targetDevicePosition;
     private InputDevice targetDevice;
     private InputDevice targetLeftHandDevice;
@@ -27,22 +28,29 @@ public class HandPresence : MonoBehaviour
     private bool hasSpawnHook = false;
     private bool isBat = false;
 
-    private UnityEngine.XR.InputDevice leftDevice;
-    private UnityEngine.XR.InputDevice rightDevice;
+    public UnityEngine.XR.InputDevice leftDevice;
+    public UnityEngine.XR.InputDevice rightDevice;
     private List<XRNodeState> _nodeStates = new List<XRNodeState>();
     private Vector3 leftHandPosition;
     private Vector3 rightHandPosition;
     private float batAngle = 30.0f;
     private float batDistance = 0.3f;
+    private string currScene = "";
+
+    private void Awake()
+    {
+        _playerManager = FindObjectOfType<PlayerManager>();
+        _gameManager = FindObjectOfType<GameManager>();
+    }
 
     void Start()
     {
         TryInitialize();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
     
     void Update()
     {
+        currScene = _gameManager.GetCurrScene();
         if (!targetDevice.isValid)
         {
             TryInitialize();
@@ -59,11 +67,15 @@ public class HandPresence : MonoBehaviour
             {
                 spawnedController.SetActive(false);
                 spawnedHandModel.SetActive(true);
-                CheckHookSpawn();
-                CheckBatRequirement();
-                if (isBat)
+
+                if (currScene.Equals("Final_test"))
                 {
-                    CheckIsBat();
+                    CheckHookSpawn();
+                    CheckBatRequirement();
+                    if (isBat)
+                    {
+                        CheckIsBat();
+                    }
                 }
                 UpdateHandAnimation();
             }
@@ -85,10 +97,12 @@ public class HandPresence : MonoBehaviour
         if (angle <= batAngle && distance <= batDistance)
         {
             isBat = true;
+            _playerManager.canSpawnBat = true;
         }
         else
         {
             isBat = false;
+            _playerManager.canSpawnBat = false;
         }
     }
 
@@ -147,10 +161,12 @@ public class HandPresence : MonoBehaviour
                 if (device.name.Contains("Right"))
                 {
                     rightDevice = device;
+                    _gameManager.SetRightHandDevice(device);
                 }
                 else
                 {
                     leftDevice = device;
+                    _gameManager.SetLeftHandDevice(device);
                 }
             }
             

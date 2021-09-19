@@ -15,6 +15,7 @@ public class Obstacle : MonoBehaviour
     private int pointIndex;
     private XRRig playerPosition;
     private bool isHitted = false;
+    private GameManager _gameManager;
 
     [SerializeField] private float hitMultiplier = 2.0f;
     [SerializeField] private LayerMask groundLayer;
@@ -31,6 +32,7 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         playerPosition = FindObjectOfType<XRRig>();
         _obstacleFlyingPaths = FindObjectsOfType<ObstacleFlyingPath>();
         PickPath();
@@ -83,6 +85,7 @@ public class Obstacle : MonoBehaviour
         {
             isHitted = true;
             _rigidbody.velocity = other.transform.GetComponent<Rigidbody>().velocity * hitMultiplier;
+            _gameManager.HitTutorialBarrel();
             Destroy(gameObject, 5.0f);
         }
 
