@@ -30,6 +30,11 @@ public class PlayerManager : MonoBehaviour
         deadAmount += 1;
     }
 
+    public void MinusDeadAmount()
+    {
+        deadAmount -= 1;
+    }
+
     public int GetSavedAmount()
     {
         return savedAmount;

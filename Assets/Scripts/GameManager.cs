@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private PeopleSpawnPoint[] _peopleSpawnPoint;
     private ObstacleSpawner _obstacleSpawner;
     private int barrelHitInTutorial = 0;
-    private float gameTimer = 0;
+    private float gameTimer;
     private bool obstacleIsSpawning = false;
 
     [SerializeField] private GameObject instructionPanel;
@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
                     if (timer > 3)
                     {
                         tutorialStep += 1;
-                        timer = 0;
                     }
                     timer += Time.deltaTime;
                 } 
@@ -90,6 +89,7 @@ public class GameManager : MonoBehaviour
                     instructionPanel.transform.GetChild(3).gameObject.SetActive(true);
                     if (rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue) && !gripValue)
                     {
+                        timer = 0;
                         tutorialStep += 1;
                     }
                 } 
@@ -98,12 +98,13 @@ public class GameManager : MonoBehaviour
                 {
                     instructionPanel.transform.GetChild(3).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(4).gameObject.SetActive(true);
-                    
+
                     if (_playerManager.GetSavedAmount() == 1)
                     {
                         timer = 0;
                         tutorialStep += 1;
-                    } else
+                    } 
+                    else
                     {
                         if (timer > 10)
                         {
@@ -113,8 +114,8 @@ public class GameManager : MonoBehaviour
                         {
                             _peopleSpawnPoint[0].SpawnPeople();
                         }
+                        timer += Time.deltaTime;
                     }
-                    timer += Time.deltaTime;
                 } 
                 // A barrel is coming!
                 else if (tutorialStep == 5)
@@ -165,6 +166,7 @@ public class GameManager : MonoBehaviour
                     if (leftHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripLValue) && gripLValue && rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripRValue) && gripRValue )
                     {
                         tutorialStep += 1;
+                        timer = 0;
                     }
                 } 
                 // Hit the barrel!
@@ -173,7 +175,6 @@ public class GameManager : MonoBehaviour
                     instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(9).gameObject.SetActive(true);
 
-                    Debug.Log(timer);
                     if (barrelHitInTutorial > 0)
                     {
                         timer = 0;
@@ -190,8 +191,8 @@ public class GameManager : MonoBehaviour
                         {
                             _obstacleSpawner.SpawnObstacle();
                         }
+                        timer += Time.deltaTime;
                     }
-                    timer += Time.deltaTime;
                 } 
                 // You're all set! Let's start!
                 else if (tutorialStep == 10)

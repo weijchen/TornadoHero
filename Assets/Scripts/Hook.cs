@@ -9,6 +9,7 @@ public class Hook : MonoBehaviour
 {
     [SerializeField] private GameObject RopePrefab;
     [SerializeField] private GameObject SavedPeople;
+    [SerializeField] float callTime = 20.0f;
 
     private Vector3 currentPosition;
     private Quaternion exitPositionValue;
@@ -20,9 +21,15 @@ public class Hook : MonoBehaviour
     private int maxPartCount = 150;
     private bool hasCatch = false;
     private bool hasResume = false;
+    private PlayerManager _playerManager;
 
     private Vector3 currPoint = Vector3.zero;
     private float speed = 25.0f;
+
+    private void Start()
+    {
+        _playerManager = FindObjectOfType<PlayerManager>();
+    }
 
     private void Update()
     {

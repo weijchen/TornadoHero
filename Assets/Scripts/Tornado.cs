@@ -31,10 +31,8 @@ public class Tornado : MonoBehaviour
     {
         if (shouldPull)
         {
-            // -- TODO: wanna implement a random center --
-            
             var adjustCenter = new Vector3(0, 3.0f, 0);
-            Vector3 Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<CubeActivity>().GetBornVector() - other.transform.position;
+            Vector3 Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<PlayerB>().GetBornVector() - other.transform.position;
             other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime, ForceMode.Acceleration);
 
             if (other.GetComponent<Rigidbody>().velocity.sqrMagnitude > maxV)
