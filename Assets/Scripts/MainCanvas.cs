@@ -22,6 +22,14 @@ public class MainCanvas : MonoBehaviour
     {
         savedAmountText.text = _playerManager.GetSavedAmount().ToString();
         deadAmountText.text = _playerManager.GetDeadAmount().ToString();
-        gameTimerCountdown.text = _gameManager.GetGameTimer().ToString().Substring(0, 5);
+        string timerString = _gameManager.GetGameTimer().ToString();
+        if (timerString.Length >= 5)
+        {
+            gameTimerCountdown.text = timerString.Substring(0, 5);
+        }
+        else
+        {
+            gameTimerCountdown.text = timerString;
+        }
     }
 }

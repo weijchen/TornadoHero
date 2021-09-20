@@ -16,6 +16,7 @@ public class Obstacle : MonoBehaviour
     private XRRig playerPosition;
     private bool isHitted = false;
     private GameManager _gameManager;
+    private PlayerManager _playerManager;
 
     [SerializeField] private float hitMultiplier = 2.0f;
     [SerializeField] private LayerMask groundLayer;
@@ -33,6 +34,7 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _playerManager = FindObjectOfType<PlayerManager>();
         playerPosition = FindObjectOfType<XRRig>();
         _obstacleFlyingPaths = FindObjectsOfType<ObstacleFlyingPath>();
         PickPath();
@@ -86,6 +88,8 @@ public class Obstacle : MonoBehaviour
             isHitted = true;
             _rigidbody.velocity = other.transform.GetComponent<Rigidbody>().velocity * hitMultiplier;
             _gameManager.HitTutorialBarrel();
+            _playerManager.obstacleComingEffect.gameObject.SetActive(false); 
+            _playerManager.AddHitAmount();
             Destroy(gameObject, 5.0f);
         }
 
@@ -93,5 +97,6 @@ public class Obstacle : MonoBehaviour
         {
             _audioSource.Play();
         }
+        _playerManager.obstacleComingEffect.gameObject.SetActive(false);
     }
 }

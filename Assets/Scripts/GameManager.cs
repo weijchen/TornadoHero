@@ -23,8 +23,12 @@ public class GameManager : MonoBehaviour
     private int barrelHitInTutorial = 0;
     private float gameTimer;
     private bool obstacleIsSpawning = false;
+    private int finalScore = 0;
 
     [SerializeField] private GameObject instructionPanel;
+    [SerializeField] private int saveMultiplier = 1000;
+    [SerializeField] private int hitMultiplier = 500;
+    [SerializeField] private int comboMultiplier = 2;
 
     private void Awake()
     {
@@ -110,7 +114,7 @@ public class GameManager : MonoBehaviour
                         {
                             timer = 0;
                         }
-                        else if (timer == 0)
+                        else if (timer < 0.1f)
                         {
                             _peopleSpawnPoint[0].SpawnPeople();
                         }
@@ -191,8 +195,8 @@ public class GameManager : MonoBehaviour
                         {
                             _obstacleSpawner.SpawnObstacle();
                         }
-                        timer += Time.deltaTime;
                     }
+                    timer += Time.deltaTime;
                 } 
                 // You're all set! Let's start!
                 else if (tutorialStep == 10)
@@ -215,6 +219,7 @@ public class GameManager : MonoBehaviour
 
                     _playerManager.InitiateState();
                     instructionPanel.transform.GetChild(10).gameObject.SetActive(false);
+                    instructionPanel.gameObject.SetActive(false);
                     isTutorialDone = true;
                     gameTimer = 60;
                 }
@@ -269,5 +274,48 @@ public class GameManager : MonoBehaviour
     public float GetGameTimer()
     {
         return gameTimer;
+    }
+
+    public int GetSaveScore()
+    {
+        return _playerManager.GetSavedAmount() * saveMultiplier;
+    }
+
+    public int GetHitScore()
+    {
+        return _playerManager.GetHitAmount() * hitMultiplier;
+    }
+
+    public int GetComboScore()
+    {
+        return GetSaveScore() * comboMultiplier;
+    }
+
+    public int GetFinalScore()
+    {
+        finalScore = GetSaveScore() + GetHitScore() + GetComboScore();
+        return finalScore;
+    }
+
+    public string GetRank()
+    {
+        int finalScore = GetFinalScore();
+        
+        if (finalScore >= 10000)
+        {
+            return "A";
+        } 
+        if (finalScore < 10000 && finalScore >= 5000)
+        {
+            return "B";
+        }
+        if (finalScore < 5000 && finalScore >= 2500)
+        {
+            return "C";
+        }
+        else 
+        {
+            return "D";
+        }
     }
 }
