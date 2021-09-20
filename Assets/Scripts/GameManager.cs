@@ -10,7 +10,6 @@ using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
-    static string currScene = "StartMenu";
     private bool isTutorialDone = false;
     private int tutorialStep = 0;
     private HandPresence[] _handPresences;
@@ -46,13 +45,22 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckPlayProgress();
+        CheckGameFinish();
+    }
+
+    private void CheckGameFinish()
+    {
+        if (gameTimer < 0)
+        {
+            SceneManager.LoadScene("FinalEndScene");
+        }
     }
 
     public void CheckPlayProgress()
     {
         string currSceneName = GetCurrScene();
 
-        if (currSceneName.Equals("Final_test"))
+        if (currSceneName.Equals("FinalPlayScene"))
         {
             if (!isTutorialDone)
             {
@@ -247,8 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        currScene += 1;
-        SceneManager.LoadScene("Final_test");
+        SceneManager.LoadScene("FinalPlayScene");
     }
 
     public void ExitGame()
