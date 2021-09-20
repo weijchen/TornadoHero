@@ -17,20 +17,12 @@ public class Tornado : MonoBehaviour
         {
             StartCoroutine(blowObject(other, true));
         }
-
-        //Debug.Log(other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true)
-        //&& (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true)
-        if ((other.tag == "PlayerB_onground"))
-        {
-            Debug.Log("PlayerB_onground");
-        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if ((other.tag == "PlayerB_onground") && (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true))
         {
-            Debug.Log("========");
             StartCoroutine(blowObject(other, true));
         }
     }

@@ -525,7 +525,7 @@ GameObject:
   m_Layer: 0
   m_Name: PeopleSpawnPoint (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -541,9 +541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefab: {fileID: 2629962901891758897, guid: 59eca7ed89512124b8c691ec23d400ea, type: 3}
+  peoplePrefab: {fileID: 2077584677585094719, guid: 89edf8f21de550e4c8d86b5e6a09b941, type: 3}
   maxXOffset: 0
-  spawnTime: 10
+  spawnTime: 20
 --- !u!4 &86950728
 Transform:
   m_ObjectHideFlags: 0
@@ -551,13 +551,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86950726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.207, y: 0.274, z: 7.408}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000024735925}
+  m_LocalPosition: {x: 28.96888, y: -6.0407233, z: 2.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1793309507}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &92808256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1470906074001562997, guid: 56789821b4dc1ed4e86ed5ccbfadef99, type: 3}
   m_PrefabInstance: {fileID: 292079675}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &298929491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298929492}
+  - component: {fileID: 298929493}
+  m_Layer: 0
+  m_Name: PeopleSpawnPoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298929492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298929491}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 3.88, y: -6.0407233, z: 0.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1793309507}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &298929493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298929491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peoplePrefab: {fileID: 2077584677585094719, guid: 89edf8f21de550e4c8d86b5e6a09b941, type: 3}
+  maxXOffset: 0
+  spawnTime: 25
 --- !u!1001 &318957436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2235,9 +2281,149 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 649710726}
     m_Modifications:
+    - target: {fileID: 154896111070209311, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154896111070209311, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154896111070209311, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443332947190644548, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663633158429375422, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 663633158429375422, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 663633158429375422, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669441254554657641, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669441254554657641, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669441254554657641, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261111221401702186, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261111221401702186, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261111221401702186, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482529223292133922, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482529223292133922, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482529223292133922, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1922655662136847083, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939437465523605759, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080110821200781199, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080110821200781199, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080110821200781199, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610837653865861303, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610837653865861303, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610837653865861303, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902100803867782852, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902100803867782852, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902100803867782852, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606830784139298766, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606830784139298766, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606830784139298766, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769852148264628805, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769852148264628805, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769852148264628805, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215115412180955436, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215115412180955436, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215115412180955436, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7366969801691412568, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
       propertyPath: m_Pivot.x
@@ -2327,6 +2513,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 649710725}
+    - target: {fileID: 8780209558770905573, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780209558770905573, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780209558770905573, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
 --- !u!1001 &527924088
@@ -3678,7 +3876,7 @@ GameObject:
   m_Layer: 0
   m_Name: PeopleSpawnPoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3694,7 +3892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefab: {fileID: 2629962901891758897, guid: 9bec95aa9f3462f4b963917bd542baef, type: 3}
+  peoplePrefab: {fileID: 2077584677585094719, guid: 95b04648ea37ebf429c430a78a0f9dff, type: 3}
   maxXOffset: 0
   spawnTime: 10
 --- !u!4 &949602371
@@ -3704,12 +3902,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949602369}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.57, y: 6.34, z: 10.32}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.96, y: 0.58, z: 6.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1498808822}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975381102
 GameObject:
@@ -5767,6 +5965,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1498808821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498808822}
+  m_Layer: 0
+  m_Name: Sky_PeopleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1498808822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498808821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.16888, y: 6.3147235, z: 9.654929}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1551402635}
+  - {fileID: 949602371}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1503103147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5876,7 +6106,7 @@ Transform:
   - {fileID: 406471269}
   - {fileID: 1365972367}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1529939406
 PrefabInstance:
@@ -6276,7 +6506,7 @@ GameObject:
   m_Layer: 0
   m_Name: PeopleSpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6292,7 +6522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefab: {fileID: 2629962901891758897, guid: 9bec95aa9f3462f4b963917bd542baef, type: 3}
+  peoplePrefab: {fileID: 2077584677585094719, guid: 95b04648ea37ebf429c430a78a0f9dff, type: 3}
   maxXOffset: 0
   spawnTime: 15
 --- !u!4 &1551402635
@@ -6302,12 +6532,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551402633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.12, y: 7.52, z: 10.54}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.68, y: 0.36, z: 3.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1498808822}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1588110380
 PrefabInstance:
@@ -7032,6 +7262,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1793309506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793309507}
+  m_Layer: 0
+  m_Name: Ground_PeopleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793309507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793309506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.16888, y: 6.3147235, z: 9.654929}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 86950728}
+  - {fileID: 298929492}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1798917405
 PrefabInstance:
@@ -8025,6 +8287,30 @@ PrefabInstance:
       propertyPath: instructionPanel
       value: 
       objectReference: {fileID: 155257702}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _skyPeopleSpawnPoint.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _groundPeopleSpawnPoint.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _skyPeopleSpawnPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 1551402634}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _skyPeopleSpawnPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 949602370}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _groundPeopleSpawnPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 86950727}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: _groundPeopleSpawnPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 298929493}
     - target: {fileID: 3900458156710074502, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -8042,6 +8328,10 @@ PrefabInstance:
       propertyPath: obstacleComingEffect
       value: 
       objectReference: {fileID: 493570719}
+    - target: {fileID: 877793424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7337789652841382042, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_Name
       value: Hurricane

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,12 @@ public class PlayerManager : MonoBehaviour
     private bool isStunned = false;
     private float accumTime = 0f;
     public bool canSpawnBat = false;
-    private int finalScore;
+    private int finalScore = 0;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Update()
     {

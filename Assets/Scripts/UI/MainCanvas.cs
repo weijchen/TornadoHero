@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainCanvas : MonoBehaviour
 {
-    [SerializeField] private Text savedAmountText;
-    [SerializeField] private Text deadAmountText;
-    [SerializeField] private Text gameTimerCountdown;
+    [SerializeField] private TMP_Text savedAmountText;
+    [SerializeField] private TMP_Text deadAmountText;
+    [SerializeField] private TMP_Text gameTimerCountdown;
 
     private PlayerManager _playerManager;
     private GameManager _gameManager;

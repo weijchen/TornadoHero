@@ -4,24 +4,23 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
     private bool isTutorialDone = false;
-    private int tutorialStep = 0;
+    private int tutorialStep = 11;
     private HandPresence[] _handPresences;
     private float timer = 0;
     private InputDevice leftHandDevice;
     private InputDevice rightHandDevice;
     private PlayerManager _playerManager;
-    private PeopleSpawnPoint[] _peopleSpawnPoint;
+    
     private ObstacleSpawner _obstacleSpawner;
     private int barrelHitInTutorial = 0;
     private float gameTimer;
     private bool obstacleIsSpawning = false;
+    private bool groundPeopleIsSpawning = false;
     private int finalScore = 0;
 
     [SerializeField] private GameObject instructionPanel;
@@ -29,7 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int hitMultiplier = 500;
     [SerializeField] private int comboMultiplier = 2;
     [SerializeField] private int DEFAULT_GAME_TIMER = 120;
-
+    [SerializeField] private int START_SPAWN_GROUND = 60;
+    [SerializeField] private int START_SPAWN_OBSTACLE = 30;
+    [SerializeField] PeopleSpawnPoint[] _skyPeopleSpawnPoint;
+    [SerializeField] PeopleSpawnPoint[] _groundPeopleSpawnPoint;
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -38,7 +41,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _playerManager = FindObjectOfType<PlayerManager>();
-        _peopleSpawnPoint = FindObjectsOfType<PeopleSpawnPoint>();
         _handPresences = FindObjectsOfType<HandPresence>();
         _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
     }
@@ -125,7 +127,7 @@ public class GameManager : MonoBehaviour
                         }
                         else if (timer < 0.1f)
                         {
-                            _peopleSpawnPoint[0].SpawnPeople();
+                            _skyPeopleSpawnPoint[0].SpawnPeople();
                         }
                         timer += Time.deltaTime;
                     }
@@ -156,6 +158,7 @@ public class GameManager : MonoBehaviour
                 // Put both your controllers closer and align them.
                 else if (tutorialStep == 6)
                 {
+                    instructionPanel.transform.GetChild(5).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(6).gameObject.SetActive(false);
                     instructionPanel.transform.GetChild(7).gameObject.SetActive(true);
                     if (_playerManager.canSpawnBat)
@@ -228,7 +231,7 @@ public class GameManager : MonoBehaviour
                 } 
                 else
                 {
-                    foreach (var point in _peopleSpawnPoint)
+                    foreach (var point in _groundPeopleSpawnPoint)
                     {
                         point.SpawnPeopleContinuous();
                     }
@@ -242,13 +245,25 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (gameTimer < 60)
+                if (gameTimer < START_SPAWN_OBSTACLE)
                 {
                     if (!obstacleIsSpawning)
                     {
                         _obstacleSpawner.SpawnObstacleContinuous();
                     }
                     obstacleIsSpawning = true;
+                }
+                
+                if (gameTimer < START_SPAWN_GROUND)
+                {
+                    if (!groundPeopleIsSpawning)
+                    {
+                        foreach (var point in _groundPeopleSpawnPoint)
+                        {
+                            point.SpawnPeopleContinuous();
+                        }
+                    }
+                    groundPeopleIsSpawning = true;
                 }
                 gameTimer -= Time.deltaTime;
             }

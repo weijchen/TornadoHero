@@ -36,7 +36,6 @@ public class PeopleSpawnPoint : MonoBehaviour
         Vector3 spawnPosition = transform.position;
         spawnPosition.x = (transform.position + offset).x;
 
-        //Instantiate(peoplePrefab, spawnPosition, Quaternion.identity);
         Instantiate(peoplePrefab, spawnPosition, peoplePrefab.transform.rotation);
     }
 
