@@ -8,9 +8,13 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] float spawnTime = 2.0f;
     [SerializeField] private GameObject obstacleComingEffect;
 
+    public bool coroutineIsRunning = true;
+
+    // private IEnumerator co;
+
     IEnumerator SpawnObstacle(float timeBetween)
     {
-        while (true)
+        if (coroutineIsRunning)
         {
             SpawnObstacle();
             yield return new WaitForSeconds(timeBetween);
@@ -25,6 +29,12 @@ public class ObstacleSpawner : MonoBehaviour
     
     public void SpawnObstacleContinuous()
     {
+        // co = SpawnObstacle(spawnTime);
         StartCoroutine(SpawnObstacle(spawnTime));
+    }
+
+    public void StopSpawn()
+    {
+        coroutineIsRunning = false;
     }
 }

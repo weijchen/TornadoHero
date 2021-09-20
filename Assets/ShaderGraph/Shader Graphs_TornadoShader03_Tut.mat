@@ -41,7 +41,7 @@ Material:
     - Vector1_B72F7210: 0.5
     - Vector1_C394763D: 0
     m_Colors:
-    - Color_8D645F2D: {r: 12.376148, g: 12.376148, b: 12.376148, a: 1}
+    - Color_8D645F2D: {r: 6.188073, g: 6.188073, b: 6.188073, a: 1}
     - Vector2_201E7C9A: {r: 1, g: 0.2, b: 0, a: 0}
     - Vector2_85712F6B: {r: 0.5, g: 0.5, b: 0, a: 0}
     - Vector2_C74D01CC: {r: 0.5, g: 0.5, b: 0, a: 0}

@@ -12,7 +12,9 @@ public class PeopleSpawnPoint : MonoBehaviour
     [SerializeField] float spawnTime = 2.0f;
 
     private PlayerManager _playerManager;
-    
+    private IEnumerator co;
+    public bool coroutineIsRunning = true;
+
     void Start()
     {
         _playerManager = FindObjectOfType<PlayerManager>();
@@ -20,7 +22,7 @@ public class PeopleSpawnPoint : MonoBehaviour
 
     IEnumerator SpawnPeople(float timeBetween)
     {
-        while (true)
+        if (coroutineIsRunning)
         {
             SpawnPeople();
             yield return new WaitForSeconds(timeBetween);
@@ -41,6 +43,13 @@ public class PeopleSpawnPoint : MonoBehaviour
 
     public void SpawnPeopleContinuous()
     {
+        // co = SpawnPeople(spawnTime);
         StartCoroutine(SpawnPeople(spawnTime));
+    }
+
+    public void StopSpawn()
+    {
+        coroutineIsRunning = false;
+        // StopCoroutine(co);
     }
 }

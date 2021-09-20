@@ -5,7 +5,7 @@ using UnityEngine;
 public class PeopleAnimation : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
-    [SerializeField] private float transformDistance = 2.0f;
+    [SerializeField] private float transformDistance = 1.0f;
     
      private Animator animator;
      private bool isGrounded = false;

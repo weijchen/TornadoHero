@@ -1268,6 +1268,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 150497685, guid: 5430a661147a65045a2019f733647085, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 150497686, guid: 5430a661147a65045a2019f733647085, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1023297971, guid: 5430a661147a65045a2019f733647085, type: 3}
       propertyPath: _bgmClip
       value: 
@@ -1276,6 +1284,14 @@ PrefabInstance:
       propertyPath: _tornadoEffectClip
       value: 
       objectReference: {fileID: 8300000, guid: 3e5b645b3ddfbb942ac05d20465a832b, type: 3}
+    - target: {fileID: 1929857967, guid: 5430a661147a65045a2019f733647085, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929857968, guid: 5430a661147a65045a2019f733647085, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 528234310504794121, guid: 5430a661147a65045a2019f733647085, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

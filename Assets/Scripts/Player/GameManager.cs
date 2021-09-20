@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     private static GameManager gameManagerInstance;
     private bool hasReinitiate = false;
 
+    private float delayTimer = 0f;
+    private float delayTimeToFinalScene = 5.0f;
+
     [SerializeField] private GameObject instructionPanel = null;
     [SerializeField] private int saveMultiplier = 1000;
     [SerializeField] private int hitMultiplier = 500;
@@ -34,6 +37,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int START_SPAWN_OBSTACLE = 30;
     [SerializeField] PeopleSpawnPoint[] _skyPeopleSpawnPoint;
     [SerializeField] PeopleSpawnPoint[] _groundPeopleSpawnPoint;
+    [SerializeField] private GameObject tornadoObject;
+    [SerializeField] private Transform tornadoLeavePoint;
+    [SerializeField] private float tornadoLeaveSpeed = 7.5f;
     
     private void Awake()
     {
@@ -61,9 +67,26 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameFinish()
     {
-        if (gameTimer < 0)
+        if (gameTimer == 0)
         {
-            SceneManager.LoadScene("FinalEndScene");
+            _obstacleSpawner.StopSpawn();
+            foreach (var point in _groundPeopleSpawnPoint)
+            {
+                point.StopSpawn();
+            }
+            foreach (var point in _skyPeopleSpawnPoint)
+            {
+                point.StopSpawn();
+            }
+
+            delayTimer += Time.deltaTime;
+            
+            tornadoObject.transform.position = Vector3.MoveTowards(tornadoObject.transform.position, tornadoLeavePoint.position, tornadoLeaveSpeed * Time.deltaTime);
+
+            if (delayTimer > delayTimeToFinalScene)
+            {
+                SceneManager.LoadScene("FinalEndScene");
+            }
         }
     }
 
@@ -277,7 +300,15 @@ public class GameManager : MonoBehaviour
                     }
                     groundPeopleIsSpawning = true;
                 }
-                gameTimer -= Time.deltaTime;
+
+                if (gameTimer > 0)
+                {
+                    gameTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    gameTimer = 0f;
+                }
             }
         }
     }
