@@ -11,7 +11,7 @@ using UnityEngine.XR;
 public class GameManager : MonoBehaviour
 {
     private bool isTutorialDone = false;
-    private int tutorialStep = 11;
+    private int tutorialStep = 0;
     private HandPresence[] _handPresences;
     private float timer = 0;
     private InputDevice leftHandDevice;
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int saveMultiplier = 1000;
     [SerializeField] private int hitMultiplier = 500;
     [SerializeField] private int comboMultiplier = 2;
+    [SerializeField] private int DEFAULT_GAME_TIMER = 120;
 
     private void Awake()
     {
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
                     }
                 } 
                 // A barrel is coming!
+                //If hit, it'll stun your grabbing system for three seconds. Be careful!
                 else if (tutorialStep == 5)
                 {
                     instructionPanel.transform.GetChild(4).gameObject.SetActive(false);
@@ -139,7 +141,13 @@ public class GameManager : MonoBehaviour
                     {
                         timer = 0;
                         tutorialStep += 1;
-                    } else if (timer == 0)
+                    } 
+                    else if (timer > 3)
+                    {
+                        instructionPanel.transform.GetChild(5).gameObject.SetActive(false);
+                        instructionPanel.transform.GetChild(6).gameObject.SetActive(true);
+                    }
+                    else if (timer == 0)
                     {
                         _obstacleSpawner.SpawnObstacle();
                     }
@@ -148,8 +156,8 @@ public class GameManager : MonoBehaviour
                 // Put both your controllers closer and align them.
                 else if (tutorialStep == 6)
                 {
-                    instructionPanel.transform.GetChild(5).gameObject.SetActive(false);
-                    instructionPanel.transform.GetChild(6).gameObject.SetActive(true);
+                    instructionPanel.transform.GetChild(6).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(7).gameObject.SetActive(true);
                     if (_playerManager.canSpawnBat)
                     {
                         tutorialStep += 1;
@@ -158,12 +166,12 @@ public class GameManager : MonoBehaviour
                 // Press [Left Trigger] to spawn Bat
                 else if (tutorialStep == 7)
                 {
-                    instructionPanel.transform.GetChild(6).gameObject.SetActive(false);
-                    instructionPanel.transform.GetChild(7).gameObject.SetActive(true);
+                    instructionPanel.transform.GetChild(7).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(8).gameObject.SetActive(true);
                     if (!_playerManager.canSpawnBat)
                     {
                         tutorialStep -= 1;
-                        instructionPanel.transform.GetChild(7).gameObject.SetActive(false);
+                        instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
                     }
                     if (leftHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) && triggerValue)
                     {
@@ -173,8 +181,8 @@ public class GameManager : MonoBehaviour
                 // Press [Left/Right Grip] to grab the Bat
                 else if (tutorialStep == 8)
                 {
-                    instructionPanel.transform.GetChild(7).gameObject.SetActive(false);
-                    instructionPanel.transform.GetChild(8).gameObject.SetActive(true);
+                    instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(9).gameObject.SetActive(true);
                     if (leftHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripLValue) && gripLValue && rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripRValue) && gripRValue )
                     {
                         tutorialStep += 1;
@@ -184,8 +192,8 @@ public class GameManager : MonoBehaviour
                 // Hit the barrel!
                 else if (tutorialStep == 9)
                 {
-                    instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
-                    instructionPanel.transform.GetChild(9).gameObject.SetActive(true);
+                    instructionPanel.transform.GetChild(9).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(10).gameObject.SetActive(true);
 
                     if (barrelHitInTutorial > 0)
                     {
@@ -209,8 +217,8 @@ public class GameManager : MonoBehaviour
                 // You're all set! Let's start!
                 else if (tutorialStep == 10)
                 {
-                    instructionPanel.transform.GetChild(9).gameObject.SetActive(false);
-                    instructionPanel.transform.GetChild(10).gameObject.SetActive(true);
+                    instructionPanel.transform.GetChild(10).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(11).gameObject.SetActive(true);
                     timer += Time.deltaTime;
                     if (timer > 3)
                     {
@@ -226,15 +234,15 @@ public class GameManager : MonoBehaviour
                     }
 
                     _playerManager.InitiateState();
-                    instructionPanel.transform.GetChild(10).gameObject.SetActive(false);
+                    instructionPanel.transform.GetChild(11).gameObject.SetActive(false);
                     instructionPanel.gameObject.SetActive(false);
                     isTutorialDone = true;
-                    gameTimer = 60;
+                    gameTimer = DEFAULT_GAME_TIMER;
                 }
             }
             else
             {
-                if (gameTimer < 30)
+                if (gameTimer < 60)
                 {
                     if (!obstacleIsSpawning)
                     {
@@ -244,7 +252,6 @@ public class GameManager : MonoBehaviour
                 }
                 gameTimer -= Time.deltaTime;
             }
-            
         }
     }
 

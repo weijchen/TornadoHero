@@ -328,7 +328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215, y: -66}
+  m_AnchoredPosition: {x: 212.9, y: -109.1}
   m_SizeDelta: {x: 294.02, y: 124.92441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1035653628601493974
@@ -478,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 824.5, y: 509.98352}
+  m_AnchoredPosition: {x: 0, y: 10}
   m_SizeDelta: {x: 160, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4955876624603791944
@@ -839,6 +839,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7366969802228692241}
     m_Modifications:
+    - target: {fileID: 6095491617099999746, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: 'You''re all set!
+
+        Let''s start!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717728720290689, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: Put both your controllers closer and align them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717728720290690, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8123717728879759968, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -926,6 +940,45 @@ PrefabInstance:
     - target: {fileID: 8123717728879759969, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
       propertyPath: m_Name
       value: InstructionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717729636163952, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: Press [Left Trigger] to spawn Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717729636163953, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717729914907699, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: 'If hit, it''ll stun your grabbing system for three seconds.
+
+        Be
+        careful!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717729914907700, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717730088819843, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: Press [Left/Right Grip] to grab the Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717730088819844, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717730183340401, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Text
+      value: Hit the barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123717730183340402, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115666109091670011, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
