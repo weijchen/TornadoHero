@@ -68,7 +68,7 @@ public class HandPresence : MonoBehaviour
                 spawnedController.SetActive(false);
                 spawnedHandModel.SetActive(true);
 
-                if (currScene.Equals("Final_test"))
+                if (currScene.Equals("FinalPlayScene"))
                 {
                     CheckHookSpawn();
                     CheckBatRequirement();
