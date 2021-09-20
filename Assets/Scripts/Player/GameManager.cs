@@ -22,8 +22,10 @@ public class GameManager : MonoBehaviour
     private bool obstacleIsSpawning = false;
     private bool groundPeopleIsSpawning = false;
     private int finalScore = 0;
+    private static GameManager gameManagerInstance;
+    private bool hasReinitiate = false;
 
-    [SerializeField] private GameObject instructionPanel;
+    [SerializeField] private GameObject instructionPanel = null;
     [SerializeField] private int saveMultiplier = 1000;
     [SerializeField] private int hitMultiplier = 500;
     [SerializeField] private int comboMultiplier = 2;
@@ -35,7 +37,13 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad (this);
+         
+        if (gameManagerInstance == null) {
+            gameManagerInstance = this;
+        } else {
+            DestroyObject(gameObject);
+        }
     }
 
     private void Start()
@@ -236,11 +244,15 @@ public class GameManager : MonoBehaviour
                         point.SpawnPeopleContinuous();
                     }
 
-                    _playerManager.InitiateState();
-                    instructionPanel.transform.GetChild(11).gameObject.SetActive(false);
-                    instructionPanel.gameObject.SetActive(false);
-                    isTutorialDone = true;
-                    gameTimer = DEFAULT_GAME_TIMER;
+                    if (!hasReinitiate)
+                    {
+                        _playerManager.InitiateState();
+                        instructionPanel.transform.GetChild(11).gameObject.SetActive(false);
+                        instructionPanel.gameObject.SetActive(false);
+                        isTutorialDone = true;
+                        gameTimer = DEFAULT_GAME_TIMER;
+                        hasReinitiate = true;
+                    }
                 }
             }
             else

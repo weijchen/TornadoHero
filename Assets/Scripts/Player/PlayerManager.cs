@@ -13,9 +13,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public GameObject stunnedEffect;
     [SerializeField] public GameObject obstacleComingEffect;
     
-    private int savedAmount = 0;
-    private int deadAmount = 0;
-    private int hitAmount = 0;
+    static private int savedAmount = 0;
+    static private int deadAmount = 0;
+    static private int hitAmount = 0;
+    private static PlayerManager playerManagerInstance;
+
     private bool isStunned = false;
     private float accumTime = 0f;
     public bool canSpawnBat = false;
@@ -23,7 +25,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad (this);
+         
+        if (playerManagerInstance == null) {
+            playerManagerInstance = this;
+        } else {
+            DestroyObject(gameObject);
+        }
     }
 
     void Update()

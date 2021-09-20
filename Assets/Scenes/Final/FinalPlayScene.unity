@@ -5755,11 +5755,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3372611688085442116, guid: 7a2e08fa2ef564a60a4cadd390ec6459, type: 3}
   m_PrefabInstance: {fileID: 1417992674}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1446890070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1922655662136847083, guid: 77a33a3dea2095c4f808cbf608774adf, type: 3}
-  m_PrefabInstance: {fileID: 523821816}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1463296974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5865,7 +5860,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4eff00c385f12f5409700a2b8a123274, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a7098b398ae50644e8bc9b8b4ee331c0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8276,24 +8271,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: endCanvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: mainCanvas
-      value: 
-      objectReference: {fileID: 1446890070}
-    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: instructionPanel
       value: 
       objectReference: {fileID: 155257702}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: _skyPeopleSpawnPoint.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: _groundPeopleSpawnPoint.Array.size
-      value: 2
+      propertyPath: DEFAULT_GAME_TIMER
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: _skyPeopleSpawnPoint.Array.data[0]

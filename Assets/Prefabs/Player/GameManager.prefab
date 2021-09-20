@@ -43,3 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7dd58f78311cd4aafedc2f71ead639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionPanel: {fileID: 0}
+  saveMultiplier: 1000
+  hitMultiplier: 500
+  comboMultiplier: 2
+  DEFAULT_GAME_TIMER: 10
+  START_SPAWN_GROUND: 60
+  START_SPAWN_OBSTACLE: 30
+  _skyPeopleSpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  _groundPeopleSpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
