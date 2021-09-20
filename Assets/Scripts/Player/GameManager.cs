@@ -9,7 +9,7 @@ using UnityEngine.XR;
 public class GameManager : MonoBehaviour
 {
     private bool isTutorialDone = false;
-    private int tutorialStep = 11;
+    private int tutorialStep = 0;
     private HandPresence[] _handPresences;
     private float timer = 0;
     private InputDevice leftHandDevice;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     
     private ObstacleSpawner _obstacleSpawner;
     private int barrelHitInTutorial = 0;
-    private float gameTimer;
+    private float gameTimer = 120.0f;
     private bool obstacleIsSpawning = false;
     private bool groundPeopleIsSpawning = false;
     private int finalScore = 0;
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int DEFAULT_GAME_TIMER = 120;
     [SerializeField] private int START_SPAWN_GROUND = 60;
     [SerializeField] private int START_SPAWN_OBSTACLE = 30;
+    [SerializeField] private int START_SPAWN_ETC = 15;
     [SerializeField] PeopleSpawnPoint[] _skyPeopleSpawnPoint;
     [SerializeField] PeopleSpawnPoint[] _groundPeopleSpawnPoint;
     [SerializeField] private GameObject tornadoObject;

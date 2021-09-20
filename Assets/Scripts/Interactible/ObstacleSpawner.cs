@@ -10,8 +10,6 @@ public class ObstacleSpawner : MonoBehaviour
 
     public bool coroutineIsRunning = true;
 
-    // private IEnumerator co;
-
     IEnumerator SpawnObstacle(float timeBetween)
     {
         if (coroutineIsRunning)
@@ -29,7 +27,6 @@ public class ObstacleSpawner : MonoBehaviour
     
     public void SpawnObstacleContinuous()
     {
-        // co = SpawnObstacle(spawnTime);
         StartCoroutine(SpawnObstacle(spawnTime));
     }
 

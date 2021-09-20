@@ -1092,6 +1092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstructionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8123717728879759983, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ec8be7cd3081a40bb980b40563da59, type: 3}
 --- !u!224 &8577230630049503755 stripped

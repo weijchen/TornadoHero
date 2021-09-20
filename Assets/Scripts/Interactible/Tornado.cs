@@ -8,8 +8,9 @@ public class Tornado : MonoBehaviour
     public float pullforce;
     public float refreshRate;
     public float maxV;
-
+    
     private float fixedDeltaTime;
+    private Vector3 Foredir;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +23,11 @@ public class Tornado : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if ((other.tag == "PlayerB_onground") && (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true))
+        {
+            StartCoroutine(blowObject(other, true));
+        }
+        
+        if ((other.tag == "car"))
         {
             StartCoroutine(blowObject(other, true));
         }
@@ -39,17 +45,28 @@ public class Tornado : MonoBehaviour
     {
         if (shouldPull)
         {
-            // -- TODO: wanna implement a random center --
-
             var adjustCenter = new Vector3(0, 3.0f, 0);
-            Vector3 Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<PlayerB>().GetBornVector() - other.transform.position;
+            
+            if ((other.tag == "PlayerB") || (other.tag == "PlayerB_onground")){
+                Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<PlayerB>().GetBornVector() - other.transform.position;
+            }
+            else
+            {
+                Foredir = tornadoCenter.position + adjustCenter - other.transform.position;
+            }
+
             if (other.tag == "PlayerB")
             {
                 other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime, ForceMode.Acceleration);
             }
-            if (other.tag == "PlayerB_onground")
+            else if (other.tag == "PlayerB_onground")
             {
                 other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime * 0.05f, ForceMode.Acceleration);
+            }
+            else if (other.tag == "car")
+            {
+                float pullTimeRandom = other.gameObject.GetComponent<Car>().GetPullForce();
+                other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime * pullTimeRandom, ForceMode.Acceleration);
             }
 
             if (other.GetComponent<Rigidbody>().velocity.sqrMagnitude > maxV)

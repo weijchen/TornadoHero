@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EndCanvas : MonoBehaviour
 {
-    [SerializeField] private Text saveScoreText;
-    [SerializeField] private Text hitScoreText;
-    [SerializeField] private Text comboScoreText;
-    [SerializeField] private Text finalScoreText;
-    [SerializeField] private Text rankText;
+    [SerializeField] private TMP_Text saveScoreText;
+    [SerializeField] private TMP_Text hitScoreText;
+    [SerializeField] private TMP_Text comboScoreText;
+    [SerializeField] private TMP_Text finalScoreText;
+    [SerializeField] private TMP_Text rankText;
     [SerializeField] private GameObject scrollObject;
     [SerializeField] private Transform targetPosition;
     // [SerializeField] private float scrollYOffset = 300.0f;
