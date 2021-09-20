@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // To restart tutorial when a new game start
+        isTutorialDone = false;
+        tutorialStep = 0;
+
         _playerManager = FindObjectOfType<PlayerManager>();
         _handPresences = FindObjectsOfType<HandPresence>();
         _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();

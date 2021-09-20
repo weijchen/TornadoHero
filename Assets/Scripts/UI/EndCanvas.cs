@@ -15,7 +15,6 @@ public class EndCanvas : MonoBehaviour
     [SerializeField] private TMP_Text rankText;
     [SerializeField] private GameObject scrollObject;
     [SerializeField] private Transform targetPosition;
-    // [SerializeField] private float scrollYOffset = 300.0f;
     [SerializeField] private float scrollSpeed = 5.0f; 
 
     private GameManager _gameManager;
