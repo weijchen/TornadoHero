@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4260a41219c3724e85fda008d33b162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 20
 --- !u!114 &2629962901891758894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5232d495c11e91409558487b8783a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2629962901891758900}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &9032112808041088893
 GameObject:

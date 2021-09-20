@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 5215572908589422570}
   m_Layer: 0
   m_Name: PlayerB_new_on_ground
-  m_TagString: PlayerB
+  m_TagString: PlayerB_onground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,7 +344,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2629962901891758897}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 23.6, y: 2.959, z: -3.5792747}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
@@ -353,7 +353,7 @@ Transform:
   - {fileID: 7433665050038363803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2629962901891758901
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4260a41219c3724e85fda008d33b162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 20
 --- !u!95 &2629962901891758895
 Animator:
   serializedVersion: 3
@@ -455,7 +456,7 @@ Animator:
   m_GameObject: {fileID: 2629962901891758897}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 49ab8e40880089542b92129b3165526e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd06400f0cdbffa4085dfb9e9d78c386, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd1b6f0daf5d6042b9e4dc06a2f3ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldBlow: 0
   startTime: 0
 --- !u!1 &2695571866602920638
 GameObject:
@@ -1304,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5232d495c11e91409558487b8783a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2629962901891758900}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &9032112808041088893
 GameObject:

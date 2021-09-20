@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 {
     static string currScene = "StartMenu";
     private bool isTutorialDone = false;
-    private int tutorialStep = 0;
+    private int tutorialStep = 11;
     private HandPresence[] _handPresences;
     private float timer = 0;
     private InputDevice leftHandDevice;

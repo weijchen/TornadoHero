@@ -352,6 +352,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1158070544441141551, guid: 5466c8da8d8e64e51badeb35b62aecc2, type: 3}
   m_PrefabInstance: {fileID: 77304448}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86950726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86950728}
+  - component: {fileID: 86950727}
+  m_Layer: 0
+  m_Name: PeopleSpawnPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &86950727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86950726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peoplePrefab: {fileID: 2629962901891758897, guid: 59eca7ed89512124b8c691ec23d400ea, type: 3}
+  maxXOffset: 0
+  spawnTime: 10
+--- !u!4 &86950728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86950726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.207, y: 0.274, z: 7.408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &92808256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2433,7 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
+  peoplePrefab: {fileID: 2629962901891758897, guid: 9bec95aa9f3462f4b963917bd542baef, type: 3}
   maxXOffset: 0
   spawnTime: 10
 --- !u!4 &949602371
@@ -3183,7 +3229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551402633
 GameObject:
@@ -3214,7 +3260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e498170518abcd489af7b9fe251727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
+  peoplePrefab: {fileID: 2629962901891758897, guid: 9bec95aa9f3462f4b963917bd542baef, type: 3}
   maxXOffset: 0
   spawnTime: 15
 --- !u!4 &1551402635
@@ -4432,7 +4478,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3900458156710074496, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3900458156710074496, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: m_LocalPosition.x

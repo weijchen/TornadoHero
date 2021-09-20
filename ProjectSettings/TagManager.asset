@@ -10,6 +10,7 @@ TagManager:
   - PlayerB
   - DropZone
   - Hook
+  - PlayerB_onground
   layers:
   - Default
   - TransparentFX
