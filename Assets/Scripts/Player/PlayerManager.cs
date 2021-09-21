@@ -12,7 +12,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] XRDirectInteractor _xrDirectInteractorR;
     [SerializeField] public GameObject stunnedEffect;
     [SerializeField] public GameObject obstacleComingEffect;
-    
+    [SerializeField] private bool toSave = false; 
+
     static private int savedAmount = 0;
     static private int deadAmount = 0;
     static private int hitAmount = 0;
@@ -25,12 +26,18 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad (this);
-         
-        if (playerManagerInstance == null) {
-            playerManagerInstance = this;
-        } else {
-            DestroyObject(gameObject);
+        if (toSave)
+        {
+            DontDestroyOnLoad(this);
+
+            if (playerManagerInstance == null)
+            {
+                playerManagerInstance = this;
+            }
+            else
+            {
+                DestroyObject(gameObject);
+            }
         }
     }
 

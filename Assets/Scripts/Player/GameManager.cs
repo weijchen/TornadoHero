@@ -41,15 +41,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tornadoObject;
     [SerializeField] private Transform tornadoLeavePoint;
     [SerializeField] private float tornadoLeaveSpeed = 7.5f;
+    [SerializeField] private bool toSave = false; 
     
     private void Awake()
     {
-        DontDestroyOnLoad (this);
+        if (toSave)
+        {
+            DontDestroyOnLoad (this);
          
-        if (gameManagerInstance == null) {
-            gameManagerInstance = this;
-        } else {
-            DestroyObject(gameObject);
+            if (gameManagerInstance == null) {
+                gameManagerInstance = this;
+            } else {
+                DestroyObject(gameObject);
+            }
         }
     }
 

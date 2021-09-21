@@ -111,11 +111,11 @@ RectTransform:
   m_Children:
   - {fileID: 1210244147}
   m_Father: {fileID: 3555871007344211109}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -253.4, y: 112}
+  m_AnchoredPosition: {x: -253.4, y: 84.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1425070828
@@ -202,7 +202,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8632585513394495149}
         m_TargetAssemblyTypeName: EndCanvas, Assembly-CSharp
-        m_MethodName: RestartButtonOnClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1224,6 +1224,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936401955229953616}
     m_Modifications:
+    - target: {fileID: 1940817789250951188, guid: fd8a7d78dffaed5419f130fa76e7630a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961428131437069029, guid: fd8a7d78dffaed5419f130fa76e7630a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7146977438468735282, guid: fd8a7d78dffaed5419f130fa76e7630a, type: 3}
       propertyPath: m_Name
       value: EndCanvas
@@ -1364,11 +1372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a218a3afc3e48c46a696d111e5b12d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a218a3afc3e48c46a696d111e5b12d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a218a3afc3e48c46a696d111e5b12d7, type: 3}
       propertyPath: m_LocalRotation.w

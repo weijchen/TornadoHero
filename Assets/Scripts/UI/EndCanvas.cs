@@ -15,7 +15,8 @@ public class EndCanvas : MonoBehaviour
     [SerializeField] private TMP_Text rankText;
     [SerializeField] private GameObject scrollObject;
     [SerializeField] private Transform targetPosition;
-    [SerializeField] private float scrollSpeed = 5.0f; 
+    [SerializeField] private float scrollSpeed = 5.0f;
+    [SerializeField] private GameObject creditCube;
 
     private GameManager _gameManager;
 
@@ -35,10 +36,9 @@ public class EndCanvas : MonoBehaviour
         ScoreBoardMoveToPosition();
     }
 
-    public void RestartButtonOnClick()
+    public void CreditButtonOnClick()
     {
-        _gameManager.RestartGame();
-        SceneManager.LoadScene("FinalPlayScene");
+        creditCube.SetActive(true);
     }
 
     public void ExitButtonOnClick()
