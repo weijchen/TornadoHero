@@ -782,7 +782,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1140,6 +1140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 229892437}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: START_SPAWN_ETC
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: instructionPanel
       value: 
       objectReference: {fileID: 523821817}
@@ -1147,6 +1151,14 @@ PrefabInstance:
       propertyPath: tornadoLeavePoint
       value: 
       objectReference: {fileID: 1049604891}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: DEFAULT_GAME_TIMER
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: START_SPAWN_OBSTACLE
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: _skyPeopleSpawnPoint.Array.data[0]
       value: 
@@ -1502,6 +1514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: spawnTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: specialObstacle
       value: 
