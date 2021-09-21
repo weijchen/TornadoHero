@@ -309,7 +309,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (!obstacleIsSpawning)
                     {
-                        _obstacleSpawner.SpawnObstacleContinuous();
+                        _obstacleSpawner.SpawnObstacleContinuousNew();
                     }
                     obstacleIsSpawning = true;
                 }

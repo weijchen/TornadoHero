@@ -29,26 +29,47 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
     
+    IEnumerator SpawnObstacleNew(float timeBetween)
+    {
+        while (true)
+        {
+            SpawnObstacle();
+            yield return new WaitForSeconds(timeBetween);
+        }
+    }
+    
     public void SpawnObstacle()
     {
-        int spawnObstacle = Random.Range(0, 1);
+        int spawnObstacle = Random.Range(0, 10);
 
         float gameTimer = _gameManager.GetGameTimer();
         obstacleComingEffect.gameObject.SetActive(true);
 
-        if (gameTimer < 15)
+        if (gameTimer < 20)
         {
             Instantiate(specialObstacle, transform);
         }
         else
         {
-            Instantiate(obstaclePrefabs[spawnObstacle], transform);
+            if (spawnObstacle >= 5)
+            {
+                Instantiate(obstaclePrefabs[0], transform);
+            }
+            else
+            {
+                Instantiate(obstaclePrefabs[1], transform);
+            }
         }
     }
     
     public void SpawnObstacleContinuous()
     {
         StartCoroutine(SpawnObstacle(spawnTime));
+    }
+    
+    public void SpawnObstacleContinuousNew()
+    {
+        StartCoroutine(SpawnObstacleNew(spawnTime));
     }
 
     public void StopSpawn()
