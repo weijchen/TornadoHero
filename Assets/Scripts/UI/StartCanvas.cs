@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartCanvas : MonoBehaviour
 {
@@ -176,5 +177,10 @@ public class StartCanvas : MonoBehaviour
     private void CloseImageOnIndex(int index)
     {
         imageList[index].SetActive(false);
+    }
+    
+    public void StartGame()
+    {
+        SceneManager.LoadScene("FinalPlayScene");
     }
 }
