@@ -158,7 +158,6 @@ public class HandPresence : MonoBehaviour
             
             foreach (var device in devices)
             {
-                Debug.Log(device.name);
                 if (device.name.Contains("Right"))
                 {
                     rightDevice = device;

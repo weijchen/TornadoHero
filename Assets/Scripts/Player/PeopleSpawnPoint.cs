@@ -19,7 +19,7 @@ public class PeopleSpawnPoint : MonoBehaviour
         _playerManager = FindObjectOfType<PlayerManager>();
     }
 
-    IEnumerator SpawnPeople(float timeBetween)
+    IEnumerator SpawnPeopleCo(float timeBetween)
     {
         if (coroutineIsRunning)
         {
@@ -42,11 +42,25 @@ public class PeopleSpawnPoint : MonoBehaviour
 
     public void SpawnPeopleContinuous()
     {
-        StartCoroutine(SpawnPeople(spawnTime));
+        StartCoroutine(SpawnPeopleCo(spawnTime));
     }
 
     public void StopSpawn()
     {
         coroutineIsRunning = false;
+    }
+    
+    public void SpawnPeopleContinuousNew()
+    {
+        StartCoroutine(SpawnPeopleCoCo(spawnTime));
+    }
+    
+    IEnumerator SpawnPeopleCoCo(float timeBetween)
+    {
+        while (true)
+        {
+            SpawnPeople();
+            yield return new WaitForSeconds(timeBetween);
+        }
     }
 }

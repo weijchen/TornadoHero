@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private int barrelHitInTutorial = 0;
     private float gameTimer = 120.0f;
     private bool obstacleIsSpawning = false;
+    private bool skyPeopleIsSpawning = false;
     private bool groundPeopleIsSpawning = false;
     private int finalScore = 0;
     private static GameManager gameManagerInstance;
@@ -59,10 +60,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // To restart tutorial when a new game start
-        // isTutorialDone = false;
-        // tutorialStep = 0;
-
         _playerManager = FindObjectOfType<PlayerManager>();
         _handPresences = FindObjectsOfType<HandPresence>();
         _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
@@ -72,16 +69,13 @@ public class GameManager : MonoBehaviour
     {
         CheckPlayProgress();
         CheckGameFinish();
-
-        Debug.Log(gameTimer);
-        Debug.Log(isTutorialDone);
-        Debug.Log(GetCurrScene());
     }
 
     public void RestartGame()
     {
         gameTimer = DEFAULT_GAME_TIMER;
         obstacleIsSpawning = false;
+        skyPeopleIsSpawning = false;
         groundPeopleIsSpawning = false;
     }
 
@@ -300,6 +294,17 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                // sky people spawning
+                if (!skyPeopleIsSpawning)
+                {
+                    foreach (var point in _skyPeopleSpawnPoint)
+                    {
+                        point.SpawnPeopleContinuousNew();
+                    }
+                }
+                skyPeopleIsSpawning = true;
+                
+                // obstacles spawning
                 if (gameTimer < START_SPAWN_OBSTACLE)
                 {
                     if (!obstacleIsSpawning)
@@ -309,13 +314,14 @@ public class GameManager : MonoBehaviour
                     obstacleIsSpawning = true;
                 }
                 
+                // ground people spawning
                 if (gameTimer < START_SPAWN_GROUND)
                 {
                     if (!groundPeopleIsSpawning)
                     {
                         foreach (var point in _groundPeopleSpawnPoint)
                         {
-                            point.SpawnPeopleContinuous();
+                            point.SpawnPeopleContinuousNew();
                         }
                     }
                     groundPeopleIsSpawning = true;
