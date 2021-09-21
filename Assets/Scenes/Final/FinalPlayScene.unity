@@ -1197,14 +1197,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1049604891}
     - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: tornadoLeaveSpeed
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: DEFAULT_GAME_TIMER
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900458156710074497, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: _skyPeopleSpawnPoint.Array.data[0]
       value: 
       objectReference: {fileID: 1551402634}
@@ -1288,6 +1280,14 @@ PrefabInstance:
     - target: {fileID: 4123614003940627501, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590299680634313589, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590299680634313589, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
@@ -1475,9 +1475,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: specialObstacle
+      value: 
+      objectReference: {fileID: 5174621862634685464, guid: 54b948c2f961dc645a9ea3e844f3aac4, type: 3}
+    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: obstacleComingEffect
       value: 
       objectReference: {fileID: 493570719}
+    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: obstaclePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: obstaclePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5174621862634685464, guid: 566d3f1d5c0b63c4e82a0882a05da295, type: 3}
+    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: obstaclePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5174621862634685464, guid: 14bb9aa6da014d14c88c73536f0b7152, type: 3}
     - target: {fileID: 750124817, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_Radius
       value: 14.050177

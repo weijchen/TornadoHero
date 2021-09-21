@@ -47,12 +47,16 @@ MonoBehaviour:
   saveMultiplier: 1000
   hitMultiplier: 500
   comboMultiplier: 2
-  DEFAULT_GAME_TIMER: 10
+  DEFAULT_GAME_TIMER: 2
   START_SPAWN_GROUND: 60
   START_SPAWN_OBSTACLE: 30
+  START_SPAWN_ETC: 30
   _skyPeopleSpawnPoint:
   - {fileID: 0}
   - {fileID: 0}
   _groundPeopleSpawnPoint:
   - {fileID: 0}
   - {fileID: 0}
+  tornadoObject: {fileID: 0}
+  tornadoLeavePoint: {fileID: 0}
+  tornadoLeaveSpeed: 7.5

@@ -116,7 +116,7 @@ public class HandPresence : MonoBehaviour
                 InputTracking.GetNodeStates(_nodeStates);
                 var leftHandState = _nodeStates.FirstOrDefault(node => node.nodeType == XRNode.LeftHand);
                 leftHandState.TryGetPosition(out leftHandPosition);
-                Instantiate(batPrefab, leftHandPosition, Quaternion.identity);
+                Instantiate(batPrefab, leftHandPosition + new Vector3(0, 1.0f, 0), Quaternion.identity);
                 hasSpawnBat = true;
             }
         }
@@ -136,7 +136,7 @@ public class HandPresence : MonoBehaviour
                 InputTracking.GetNodeStates(_nodeStates);
                 var rightHandState = _nodeStates.FirstOrDefault(node => node.nodeType == XRNode.RightHand);
                 rightHandState.TryGetPosition(out rightHandPosition);
-                Instantiate(hookPrefab, rightHandPosition, Quaternion.identity);
+                Instantiate(hookPrefab, rightHandPosition + new Vector3(0, 1.0f, 0), Quaternion.identity);
                 hasSpawnHook = true;
             }
         }

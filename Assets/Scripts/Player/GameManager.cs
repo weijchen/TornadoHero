@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // To restart tutorial when a new game start
-        isTutorialDone = false;
-        tutorialStep = 0;
+        // isTutorialDone = false;
+        // tutorialStep = 0;
 
         _playerManager = FindObjectOfType<PlayerManager>();
         _handPresences = FindObjectsOfType<HandPresence>();
@@ -68,6 +68,17 @@ public class GameManager : MonoBehaviour
     {
         CheckPlayProgress();
         CheckGameFinish();
+
+        Debug.Log(gameTimer);
+        Debug.Log(isTutorialDone);
+        Debug.Log(GetCurrScene());
+    }
+
+    public void RestartGame()
+    {
+        gameTimer = DEFAULT_GAME_TIMER;
+        obstacleIsSpawning = false;
+        groundPeopleIsSpawning = false;
     }
 
     private void CheckGameFinish()

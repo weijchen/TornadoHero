@@ -43,7 +43,6 @@ public class StartCanvas : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
         ImageRoller();
     }
 

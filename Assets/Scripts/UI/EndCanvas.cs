@@ -37,6 +37,7 @@ public class EndCanvas : MonoBehaviour
 
     public void RestartButtonOnClick()
     {
+        _gameManager.RestartGame();
         SceneManager.LoadScene("FinalPlayScene");
     }
 
