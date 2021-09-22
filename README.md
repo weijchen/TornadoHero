@@ -12,3 +12,7 @@
 2. Implemented the physical mechanism of the bat hitting effect, game object flying system, and hook's rope mechanism
 3. Built intro scene, tutorial section and UI components to help players enjoy the game more easily
 4. Brainstormed the game idea and designed the gameplay mechanics with team members
+
+# External Link
+- github: https://github.com/weijchen/TornadoHero
+- Itch.io: https://weijchen0919.itch.io/tornado-hero
