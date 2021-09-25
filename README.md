@@ -19,3 +19,4 @@
 # External Link
 - github: https://github.com/weijchen/TornadoHero
 - Itch.io: https://weijchen0919.itch.io/tornado-hero
+- youtube: https://www.youtube.com/watch?v=R8TJqLKaZ9k&feature=youtu.be
