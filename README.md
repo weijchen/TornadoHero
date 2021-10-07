@@ -1,7 +1,7 @@
 # Tornado Hero
 - Round 1 Team Project in CMU ETC BVW (Build Virtual World)
 - Assigned Theme: The guest helps character A who is afraid of character B
-- Project Duration: 2 weeks (Sep 7, 2021 - Sep 21, 2021)
+- Project Duration: 2 weeks (Sept. 7, 2021 - Sept. 21, 2021)
 - Tools: Unity3D
 - Platform: PC game / Virtual Reality (Oculus)
 - Team members: 
