@@ -13,13 +13,7 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] float maxXOffset = 10.0f;
         [SerializeField] float spawnTime = 2.0f;
     
-        private PlayerManager _playerManager;
         public bool coroutineIsRunning = true;
-    
-        void Start()
-        {
-            _playerManager = FindObjectOfType<PlayerManager>();
-        }
     
         IEnumerator SpawnPeopleCo(float timeBetween)
         {

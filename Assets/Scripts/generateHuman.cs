@@ -7,7 +7,6 @@ namespace Team13.Round1.TornadoHero
     public class generateHuman : MonoBehaviour
     {
 
-        //private IEnumerator coroutine;
         private bool isStart;
         public GameObject CreateObject;
 
@@ -15,12 +14,7 @@ namespace Team13.Round1.TornadoHero
         {
             StartCoroutine("WaitAndPrint");
         }
-
-        void Update()
-        {
         
-        }
-
         private IEnumerator WaitAndPrint()
         {
             for (; ; )

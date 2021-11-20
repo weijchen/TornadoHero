@@ -14,17 +14,10 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] private TMP_Text deadAmountText;
         [SerializeField] private TMP_Text gameTimerCountdown;
 
-        private PlayerManager _playerManager;
-    
-        void Start()
-        {
-            _playerManager = FindObjectOfType<PlayerManager>();
-        }
-
         void Update()
         {
-            savedAmountText.text = _playerManager.GetSavedAmount().ToString();
-            deadAmountText.text = _playerManager.GetDeadAmount().ToString();
+            savedAmountText.text = PlayerManager.Instance.GetSavedAmount().ToString();
+            deadAmountText.text = PlayerManager.Instance.GetDeadAmount().ToString();
             string timerString = GameManager.Instance.GetGameTimer().ToString();
             if (timerString.Length >= 5)
             {

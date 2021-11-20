@@ -7,6 +7,20 @@ namespace Team13.Round1.TornadoHero
 {
     public class StartCanvas : MonoBehaviour
     {
+        [SerializeField] private GameObject[] imageList;
+        [SerializeField] private GameObject startButton;
+        [SerializeField] private AudioClip _newsStartClip;
+        [SerializeField] private AudioClip _tornadoClip;
+        [SerializeField] private AudioClip _dingClip;
+        [SerializeField] private AudioClip _oneStepClip;
+        [SerializeField] private AudioClip _screamOneClip;
+        [SerializeField] private AudioClip _screamTwoClip;
+        [SerializeField] private AudioClip _showEquipOneClip;
+        [SerializeField] private AudioClip _showEquipTwoClip;
+        [SerializeField] private AudioClip _stepsClip;
+        [SerializeField] private AudioClip _tornadoEffectClip;
+        [SerializeField] private AudioClip _bgmClip;
+
         private float timer;
         private AudioSource _audioSource;
         private bool newsStartPlayed = false;
@@ -21,20 +35,6 @@ namespace Team13.Round1.TornadoHero
         private bool tornadoEffectPlayedFirst = false;
         private bool tornadoEffectPlayedSecond = false;
         private bool bgmPlayed = false;
-
-        [SerializeField] private GameObject[] imageList;
-        [SerializeField] private GameObject startButton;
-        [SerializeField] private AudioClip _newsStartClip;
-        [SerializeField] private AudioClip _tornadoClip;
-        [SerializeField] private AudioClip _dingClip;
-        [SerializeField] private AudioClip _oneStepClip;
-        [SerializeField] private AudioClip _screamOneClip;
-        [SerializeField] private AudioClip _screamTwoClip;
-        [SerializeField] private AudioClip _showEquipOneClip;
-        [SerializeField] private AudioClip _showEquipTwoClip;
-        [SerializeField] private AudioClip _stepsClip;
-        [SerializeField] private AudioClip _tornadoEffectClip;
-        [SerializeField] private AudioClip _bgmClip;
         
         void Start()
         {

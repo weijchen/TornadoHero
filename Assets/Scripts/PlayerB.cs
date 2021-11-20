@@ -8,7 +8,6 @@ namespace Team13.Round1.TornadoHero
 {
     public class PlayerB : MonoBehaviour
     {
-        private PlayerManager _playerManager;
         private Vector3 BornVector = Vector3.zero;
         private bool isSaved = false;
 
@@ -16,7 +15,6 @@ namespace Team13.Round1.TornadoHero
 
         void Start()
         {
-            _playerManager = FindObjectOfType<PlayerManager>();
             BornVector = new Vector3(0, Random.Range(-8.0f, 8.0f), 0);
             Invoke("DestroyPrefab", destroyTime);
         }
@@ -26,7 +24,7 @@ namespace Team13.Round1.TornadoHero
             if (other.transform.tag == "Hook")
             {
                 isSaved = true;
-                _playerManager.AddSavedAmount();
+                PlayerManager.Instance.AddSavedAmount();
             }
         }
 
@@ -39,7 +37,7 @@ namespace Team13.Round1.TornadoHero
         {
             if (!isSaved)
             {
-                _playerManager.AddDeadAmount();
+                PlayerManager.Instance.AddDeadAmount();
             }        
             Destroy(gameObject);
         }

@@ -39,11 +39,6 @@ namespace Team13.Round1.TornadoHero
         private float batDistance = 0.3f;
         private string currScene = "";
 
-        private void Awake()
-        {
-            _playerManager = FindObjectOfType<PlayerManager>();
-        }
-
         void Start()
         {
             TryInitialize();

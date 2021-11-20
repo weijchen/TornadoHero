@@ -16,7 +16,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnTriggerEnter(Collider other)
         {
-            if ((other.tag == "PlayerB"))
+            if ((other.CompareTag("PlayerB")))
             {
                 StartCoroutine(blowObject(other, true));
             }
@@ -24,12 +24,12 @@ namespace Team13.Round1.TornadoHero
 
         private void OnTriggerStay(Collider other)
         {
-            if ((other.tag == "PlayerB_onground") && (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true))
+            if ((other.CompareTag("PlayerB_onground")) && (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true))
             {
                 StartCoroutine(blowObject(other, true));
             }
             
-            if ((other.tag == "car"))
+            if ((other.CompareTag("car")))
             {
                 StartCoroutine(blowObject(other, true));
             }
@@ -37,7 +37,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.tag == "PlayerB")
+            if (other.CompareTag("PlayerB"))
             {
                 StartCoroutine(blowObject(other, false));
             }
@@ -49,7 +49,7 @@ namespace Team13.Round1.TornadoHero
             {
                 var adjustCenter = new Vector3(0, 3.0f, 0);
                 
-                if ((other.tag == "PlayerB") || (other.tag == "PlayerB_onground")){
+                if ((other.CompareTag("PlayerB")) || (other.CompareTag("PlayerB_onground"))){
                     Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<PlayerB>().GetBornVector() - other.transform.position;
                 }
                 else
@@ -57,15 +57,15 @@ namespace Team13.Round1.TornadoHero
                     Foredir = tornadoCenter.position + adjustCenter - other.transform.position;
                 }
 
-                if (other.tag == "PlayerB")
+                if (other.CompareTag("PlayerB"))
                 {
                     other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime, ForceMode.Acceleration);
                 }
-                else if (other.tag == "PlayerB_onground")
+                else if (other.CompareTag("PlayerB_onground"))
                 {
                     other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime * 0.05f, ForceMode.Acceleration);
                 }
-                else if (other.tag == "car")
+                else if (other.CompareTag("car"))
                 {
                     float pullTimeRandom = other.gameObject.GetComponent<Car>().GetPullForce();
                     other.GetComponent<Rigidbody>().AddForce(Foredir.normalized * pullforce * Time.deltaTime * pullTimeRandom, ForceMode.Acceleration);

@@ -18,7 +18,6 @@ namespace Team13.Round1.TornadoHero
         private int pointIndex;
         private XRRig playerPosition;
         private bool isHitted = false;
-        private PlayerManager _playerManager;
 
         [SerializeField] private float hitMultiplier = 2.0f;
         [SerializeField] private LayerMask groundLayer;
@@ -35,7 +34,6 @@ namespace Team13.Round1.TornadoHero
 
         private void Start()
         {
-            _playerManager = FindObjectOfType<PlayerManager>();
             playerPosition = FindObjectOfType<XRRig>();
             _obstacleFlyingPaths = FindObjectsOfType<ObstacleFlyingPath>();
             PickPath();
@@ -89,8 +87,8 @@ namespace Team13.Round1.TornadoHero
                 isHitted = true;
                 _rigidbody.velocity = other.transform.GetComponent<Rigidbody>().velocity * hitMultiplier;
                 TutorialManager.Instance.HitTutorialBarrel();
-                _playerManager.obstacleComingEffect.gameObject.SetActive(false); 
-                _playerManager.AddHitAmount();
+                PlayerManager.Instance.obstacleComingEffect.gameObject.SetActive(false); 
+                PlayerManager.Instance.AddHitAmount();
                 Destroy(gameObject, 5.0f);
             }
 
@@ -98,7 +96,7 @@ namespace Team13.Round1.TornadoHero
             {
                 _audioSource.Play();
             }
-            _playerManager.obstacleComingEffect.gameObject.SetActive(false);
+            PlayerManager.Instance.obstacleComingEffect.gameObject.SetActive(false);
         }
     }
 }

@@ -23,15 +23,8 @@ namespace Team13.Round1.TornadoHero
         private int maxPartCount = 150;
         private bool hasCatch = false;
         private bool hasResume = false;
-        private PlayerManager _playerManager;
-
         private Vector3 currPoint = Vector3.zero;
         private float speed = 25.0f;
-
-        private void Start()
-        {
-            _playerManager = FindObjectOfType<PlayerManager>();
-        }
 
         private void Update()
         {

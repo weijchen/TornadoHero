@@ -23,11 +23,6 @@ namespace Team13.Round1.TornadoHero
             
         }
     
-        void Update()
-        {
-            
-        }
-        
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
             if (secondInteractor && selectingInteractor)

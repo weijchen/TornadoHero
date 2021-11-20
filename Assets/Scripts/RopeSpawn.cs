@@ -7,11 +7,8 @@ namespace Team13.Round1.TornadoHero
     public class RopeSpawn : MonoBehaviour
     {
         [SerializeField] private GameObject partPrefab, parentObject;
-        
         [SerializeField] [Range(1, 1000)] private int length = 1;
-    
         [SerializeField] private float partDistance = 0.1f;
-    
         [SerializeField] private bool reset, spawn, snapFirst, snapLast;
     
         void Update()
