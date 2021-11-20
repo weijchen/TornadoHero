@@ -19,25 +19,29 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] private int saveMultiplier = 1000;
         [SerializeField] private int hitMultiplier = 500;
         [SerializeField] private int comboMultiplier = 2;
-        
-        [SerializeField] public PeopleSpawnPoint[] _skyPeopleSpawnPoint;
-        [SerializeField] public PeopleSpawnPoint[] _groundPeopleSpawnPoint;
+
+        [Header("Tornado")]
         [SerializeField] private GameObject tornadoObject;
         [SerializeField] private Transform tornadoLeavePoint;
         [SerializeField] private float tornadoLeaveSpeed = 7.5f;
         
+        [SerializeField] public PeopleSpawnPoint[] _skyPeopleSpawnPoint;
+        [SerializeField] public PeopleSpawnPoint[] _groundPeopleSpawnPoint;
+        private bool obstacleIsSpawning = false;
+        private bool skyPeopleIsSpawning = false;
+        private bool groundPeopleIsSpawning = false;
         
         public InputDevice leftHandDevice;
         public InputDevice rightHandDevice;
+        public bool isTutorialDone = false;
         
-        private HandPresence[] _handPresences;
-        private float timer = 0;
         public ObstacleSpawner _obstacleSpawner;
+
         public float gameTimer = 120.0f;
-        
-        private int finalScore = 0;
         public bool hasReinitiate = false;
 
+        private float timer = 0;
+        private int finalScore = 0;
         private float delayTimer = 0f;
         private float delayTimeToFinalScene = 5.0f;
 
@@ -55,20 +59,81 @@ namespace Team13.Round1.TornadoHero
 
         private void Start()
         {
-            _handPresences = FindObjectsOfType<HandPresence>();
             _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
         }
 
         private void Update()
         {
-            TutorialManager.Instance.CheckPlayProgress();
+            string currSceneName = GetCurrScene();
+
+            if (currSceneName.Equals("FinalPlayScene"))
+            {
+                if (!isTutorialDone)
+                {
+                    TutorialManager.Instance.CheckPlayProgress();
+                }
+                else
+                {
+                    CheckPlayProgress();
+                }
+            }
+
             CheckGameFinish();
         }
 
+        private void CheckPlayProgress()
+        {
+            // sky people spawning
+            if (!skyPeopleIsSpawning)
+            {
+                foreach (var point in _skyPeopleSpawnPoint)
+                {
+                    point.SpawnPeopleContinuousNew();
+                }
+            }
+
+            skyPeopleIsSpawning = true;
+
+            // obstacles spawning
+            if (gameTimer < startSpawnObstacle)
+            {
+                if (!obstacleIsSpawning)
+                {
+                    _obstacleSpawner.SpawnObstacleContinuousNew();
+                }
+
+                obstacleIsSpawning = true;
+            }
+
+            // ground people spawning
+            if (gameTimer < startSpawnGround)
+            {
+                if (!groundPeopleIsSpawning)
+                {
+                    foreach (var point in _groundPeopleSpawnPoint)
+                    {
+                        point.SpawnPeopleContinuousNew();
+                    }
+                }
+
+                groundPeopleIsSpawning = true;
+            }
+
+            if (gameTimer > 0)
+            {
+                gameTimer -= Time.deltaTime;
+            }
+            else
+            {
+                gameTimer = 0f;
+            }
+        }
         public void RestartGame()
         {
             gameTimer = gameTime;
-            TutorialManager.Instance.RestartGame();
+            obstacleIsSpawning = false;
+            skyPeopleIsSpawning = false;
+            groundPeopleIsSpawning = false;
         }
 
         private void CheckGameFinish()
