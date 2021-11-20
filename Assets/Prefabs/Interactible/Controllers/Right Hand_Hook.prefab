@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3225805219801788404}
   - component: {fileID: 2099678663063646377}
   m_Layer: 6
-  m_Name: RightHand_Hook
+  m_Name: Right Hand_Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

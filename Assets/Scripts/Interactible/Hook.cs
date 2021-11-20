@@ -70,7 +70,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.tag == "PlayerB")
+            if (other.transform.CompareTag("PlayerB"))
             {
                 Destroy(other.gameObject);
                 hasCatch = true;

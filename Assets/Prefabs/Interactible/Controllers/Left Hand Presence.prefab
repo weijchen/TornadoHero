@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1611034805959553873}
-  - component: {fileID: 1611034805959553870}
+  - component: {fileID: 937782452009632669}
   m_Layer: 0
-  m_Name: RightHandPresence
+  m_Name: Left Hand Presence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1611034805959553870
+--- !u!114 &937782452009632669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,15 +40,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1611034805959553871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34eff23d5b0c5894aa389c9cd5480415, type: 3}
+  m_Script: {fileID: 11500000, guid: 44632afb184e90245aea9e8e95489e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showController: 0
-  controllerCharacteristics: 512
+  controllerCharacteristics: 0
   controllerPrefabs:
   - {fileID: 8388917428958516937, guid: 806cb8a75bd53cd428ec7fe1c31bfc03, type: 3}
-  - {fileID: 6798648197447349858, guid: e860a6802f2eaef4ab76fcab8b7798e7, type: 3}
-  handModelPrefab: {fileID: 7455832284866003318, guid: ac408d31f0ae4014982a917e23e6cd4f, type: 3}
-  playerManager: {fileID: 0}
-  hookPrefab: {fileID: 6021628459748006829, guid: 86c8dae6ce7afa44b8a14abb0849f9d0, type: 3}
-  batPrefab: {fileID: 5435216383995490157, guid: c93ba3f26129f1b49ba9a7b22628ed6d, type: 3}
+  - {fileID: 4896891462164545559, guid: a02934ea85e029e418a3465f4f7bbb29, type: 3}
+  handModelPrefab: {fileID: 0}
+  _playerManager: {fileID: 0}
+  hookPrefab: {fileID: 0}
+  batPrefab: {fileID: 0}

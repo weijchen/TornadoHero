@@ -9,20 +9,8 @@ namespace Team13.Round1.TornadoHero
     {
         [SerializeField] private GameObject[] imageList;
         [SerializeField] private GameObject startButton;
-        [SerializeField] private AudioClip _newsStartClip;
-        [SerializeField] private AudioClip _tornadoClip;
-        [SerializeField] private AudioClip _dingClip;
-        [SerializeField] private AudioClip _oneStepClip;
-        [SerializeField] private AudioClip _screamOneClip;
-        [SerializeField] private AudioClip _screamTwoClip;
-        [SerializeField] private AudioClip _showEquipOneClip;
-        [SerializeField] private AudioClip _showEquipTwoClip;
-        [SerializeField] private AudioClip _stepsClip;
-        [SerializeField] private AudioClip _tornadoEffectClip;
-        [SerializeField] private AudioClip _bgmClip;
 
         private float timer;
-        private AudioSource _audioSource;
         private bool newsStartPlayed = false;
         private bool tornadoPlayed = false;
         private bool dingPlayed = false;
@@ -39,7 +27,6 @@ namespace Team13.Round1.TornadoHero
         void Start()
         {
             timer = 0;
-            _audioSource = GetComponent<AudioSource>();
         }
 
         void Update()
@@ -55,7 +42,7 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!newsStartPlayed)
                 {
-                    _audioSource.PlayOneShot(_newsStartClip);
+                    SoundManager.Instance.PlayVO(VOIndex.Intro);
                     newsStartPlayed = true;
                 }
                 OpenImageOnIndex(0);
@@ -65,7 +52,7 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!tornadoPlayed)
                 {
-                    _audioSource.PlayOneShot(_tornadoClip);
+                    SoundManager.Instance.PlayVO(VOIndex.News);
                     tornadoPlayed = true;
                 }
             }
@@ -75,7 +62,7 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!dingPlayed)
                 {
-                    _audioSource.PlayOneShot(_dingClip);
+                    SoundManager.Instance.PlayVO(VOIndex.Ding);
                     dingPlayed = true;
                 }
                 CloseImageOnIndex(0);
@@ -87,17 +74,17 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!stepsPlayed)
                 {
-                    _audioSource.PlayOneShot(_stepsClip);
+                    SoundManager.Instance.PlayVO(VOIndex.ManySteps);
                     stepsPlayed = true;
                 }
                 if (!screamOnePlayed)
                 {
-                    _audioSource.PlayOneShot(_screamOneClip, 0.8f);
+                    SoundManager.Instance.PlayVO(VOIndex.ScreamOne, 0.8f);
                     screamOnePlayed = true;
                 }
                 if (!screamTwoPlayed)
                 {
-                    _audioSource.PlayOneShot(_screamTwoClip, 0.8f);
+                    SoundManager.Instance.PlayVO(VOIndex.ScreamTwo, 0.8f);
                     screamTwoPlayed = true;
                 }
                 CloseImageOnIndex(1);
@@ -109,7 +96,7 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!showEquipOnePlayed)
                 {
-                    _audioSource.PlayOneShot(_showEquipOneClip);
+                    SoundManager.Instance.PlayVO(VOIndex.EquipmentOne);
                     showEquipOnePlayed = true;
                 }
                 CloseImageOnIndex(2);
@@ -121,7 +108,7 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!showEquipTwoPlayed)
                 {
-                    _audioSource.PlayOneShot(_showEquipTwoClip);
+                    SoundManager.Instance.PlayVO(VOIndex.EquipmentTwo);
                     showEquipTwoPlayed = true;
                 }
                 OpenImageOnIndex(4);
@@ -132,12 +119,12 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!oneStepPlayed)
                 {
-                    _audioSource.PlayOneShot(_oneStepClip);
+                    SoundManager.Instance.PlayVO(VOIndex.OneStep);
                     oneStepPlayed = true;
                 }
                 if (!tornadoEffectPlayedFirst)
                 {
-                    _audioSource.PlayOneShot(_tornadoEffectClip, 0.5f);
+                    SoundManager.Instance.PlaySFX(SFXIndex.Tornado, 0.5f);
                     tornadoEffectPlayedFirst = true;
                 }
                 CloseImageOnIndex(3);
@@ -150,12 +137,12 @@ namespace Team13.Round1.TornadoHero
             {
                 if (!tornadoEffectPlayedSecond)
                 {
-                    _audioSource.PlayOneShot(_tornadoEffectClip);
+                    SoundManager.Instance.PlaySFX(SFXIndex.Tornado);
                     tornadoEffectPlayedSecond = true;
                 }
                 if (!bgmPlayed)
                 {
-                    _audioSource.PlayOneShot(_bgmClip);
+                    SoundManager.Instance.PlayBGM(BGMIndex.Main);
                     bgmPlayed = true;
                 }
                 CloseImageOnIndex(5);
@@ -182,7 +169,7 @@ namespace Team13.Round1.TornadoHero
         
         public void StartGame()
         {
-            SceneManager.LoadScene("FinalPlayScene");
+            SceneManager.LoadScene(SceneCategory.Main.ToString());
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.tag == "Obstacle")
+            if (other.transform.CompareTag("Obstacle"))
             {
                 _audioSource.Play();
             }

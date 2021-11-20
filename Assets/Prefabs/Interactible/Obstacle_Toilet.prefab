@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5513570904052850338}
   - component: {fileID: 5196565298289912529}
   - component: {fileID: 6903696896188598468}
-  - component: {fileID: 5275892911524405491}
   - component: {fileID: 8453354397870918684}
+  - component: {fileID: 8586943133057315685}
   m_Layer: 8
   m_Name: Obstacle_Toilet
   m_TagString: Obstacle
@@ -64,26 +64,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.3393259, z: 1}
   m_Center: {x: 0, y: 0.0073547363, z: 0}
---- !u!114 &5275892911524405491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5174621862634685464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ede041dc86d79e45b1f2568c65ca717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitMultiplier: 1.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  _obstacleFlyingPaths: []
-  speed: 7.5
-  arrivedDistance: 0.5
-  destroyTime: 0.5
 --- !u!82 &8453354397870918684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -180,6 +160,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8586943133057315685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174621862634685464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c011991961e9ff0429d74665d9bcff15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMultiplier: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _obstacleFlyingPaths: []
+  speed: 2
+  arrivedDistance: 0.5
+  destroyTime: 0.2
 --- !u!1001 &1735528276350166758
 PrefabInstance:
   m_ObjectHideFlags: 0

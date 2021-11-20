@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 4896891462155203489}
   - component: {fileID: 2871043005928776535}
   m_Layer: 0
-  m_Name: LeftHandModel
+  m_Name: Left Hand Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

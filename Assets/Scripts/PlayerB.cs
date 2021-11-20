@@ -21,7 +21,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.tag == "Hook")
+            if (other.transform.CompareTag("Hook"))
             {
                 isSaved = true;
                 PlayerManager.Instance.AddSavedAmount();

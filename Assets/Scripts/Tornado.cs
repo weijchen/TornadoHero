@@ -16,7 +16,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnTriggerEnter(Collider other)
         {
-            if ((other.CompareTag("PlayerB")))
+            if (other.CompareTag("PlayerB"))
             {
                 StartCoroutine(blowObject(other, true));
             }
@@ -24,12 +24,12 @@ namespace Team13.Round1.TornadoHero
 
         private void OnTriggerStay(Collider other)
         {
-            if ((other.CompareTag("PlayerB_onground")) && (other.gameObject.GetComponent<ShouldBlow>().shouldBlow == true))
+            if (other.CompareTag("PlayerB_onground") && other.gameObject.GetComponent<ShouldBlow>().shouldBlow)
             {
                 StartCoroutine(blowObject(other, true));
             }
             
-            if ((other.CompareTag("car")))
+            if (other.CompareTag("car"))
             {
                 StartCoroutine(blowObject(other, true));
             }
@@ -49,7 +49,7 @@ namespace Team13.Round1.TornadoHero
             {
                 var adjustCenter = new Vector3(0, 3.0f, 0);
                 
-                if ((other.CompareTag("PlayerB")) || (other.CompareTag("PlayerB_onground"))){
+                if (other.CompareTag("PlayerB") || other.CompareTag("PlayerB_onground")){
                     Foredir = tornadoCenter.position + adjustCenter + other.gameObject.GetComponent<PlayerB>().GetBornVector() - other.transform.position;
                 }
                 else

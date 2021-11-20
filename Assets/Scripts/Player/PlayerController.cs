@@ -9,7 +9,7 @@ namespace Team13.Round1.TornadoHero
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.tag == "Obstacle")
+            if (other.transform.CompareTag("Obstacle"))
             {
                 PlayerManager.Instance.TurnStunned();            
             }

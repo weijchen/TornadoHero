@@ -14,7 +14,6 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] InputDeviceCharacteristics controllerCharacteristics;
         [SerializeField] List<GameObject> controllerPrefabs;
         [SerializeField] GameObject handModelPrefab;
-        [SerializeField] PlayerManager _playerManager;
         [SerializeField] GameObject hookPrefab;
         [SerializeField] GameObject batPrefab;
 
@@ -30,8 +29,8 @@ namespace Team13.Round1.TornadoHero
         private bool hasSpawnHook = false;
         private bool isBat = false;
 
-        public UnityEngine.XR.InputDevice leftDevice;
-        public UnityEngine.XR.InputDevice rightDevice;
+        public InputDevice leftDevice;
+        public InputDevice rightDevice;
         private List<XRNodeState> _nodeStates = new List<XRNodeState>();
         private Vector3 leftHandPosition;
         private Vector3 rightHandPosition;
@@ -46,34 +45,38 @@ namespace Team13.Round1.TornadoHero
         
         void Update()
         {
-            currScene = GameManager.Instance.GetCurrScene();
-            if (!targetDevice.isValid)
+            if (!FindObjectOfType<StartCanvas>())
             {
-                TryInitialize();
-            }
-            else
-            {
-                UpdateDevicePosition();
-                if (showController)
+                currScene = GameManager.Instance.GetCurrScene();
+            
+                if (!targetDevice.isValid)
                 {
-                    spawnedController.SetActive(true);
-                    spawnedHandModel.SetActive(false);
+                    TryInitialize();
                 }
                 else
                 {
-                    spawnedController.SetActive(false);
-                    spawnedHandModel.SetActive(true);
-
-                    if (currScene.Equals("FinalPlayScene"))
+                    UpdateDevicePosition();
+                    if (showController)
                     {
-                        CheckHookSpawn();
-                        CheckBatRequirement();
-                        if (isBat)
-                        {
-                            CheckIsBat();
-                        }
+                        spawnedController.SetActive(true);
+                        spawnedHandModel.SetActive(false);
                     }
-                    UpdateHandAnimation();
+                    else
+                    {
+                        spawnedController.SetActive(false);
+                        spawnedHandModel.SetActive(true);
+
+                        if (currScene.Equals(SceneCategory.Main.ToString()))
+                        {
+                            CheckHookSpawn();
+                            CheckBatRequirement();
+                            if (isBat)
+                            {
+                                CheckIsBat();
+                            }
+                        }
+                        UpdateHandAnimation();
+                    }
                 }
             }
         }
@@ -93,12 +96,12 @@ namespace Team13.Round1.TornadoHero
             if (angle <= batAngle && distance <= batDistance)
             {
                 isBat = true;
-                _playerManager.canSpawnBat = true;
+                PlayerManager.Instance.canSpawnBat = true;
             }
             else
             {
                 isBat = false;
-                _playerManager.canSpawnBat = false;
+                PlayerManager.Instance.canSpawnBat = false;
             }
         }
 

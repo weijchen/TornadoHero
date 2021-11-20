@@ -82,7 +82,7 @@ namespace Team13.Round1.TornadoHero
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.tag == "Bat")
+            if (other.transform.CompareTag("Bat"))
             {
                 isHitted = true;
                 _rigidbody.velocity = other.transform.GetComponent<Rigidbody>().velocity * hitMultiplier;

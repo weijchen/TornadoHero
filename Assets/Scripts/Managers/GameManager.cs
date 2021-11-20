@@ -66,7 +66,7 @@ namespace Team13.Round1.TornadoHero
         {
             string currSceneName = GetCurrScene();
 
-            if (currSceneName.Equals("FinalPlayScene"))
+            if (currSceneName.Equals(SceneCategory.Main.ToString()))
             {
                 if (!isTutorialDone)
                 {
@@ -158,14 +158,14 @@ namespace Team13.Round1.TornadoHero
 
                 if (delayTimer > delayTimeToFinalScene)
                 {
-                    SceneManager.LoadScene("FinalEndScene");
+                    SceneManager.LoadScene(SceneCategory.Main.ToString());
                 }
             }
         }
 
         public void StartGame()
         {
-            SceneManager.LoadScene("FinalPlayScene");
+            SceneManager.LoadScene(SceneCategory.Main.ToString());
         }
 
         public void ExitGame()
