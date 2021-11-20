@@ -88,7 +88,7 @@ namespace Team13.Round1.TornadoHero
             {
                 isHitted = true;
                 _rigidbody.velocity = other.transform.GetComponent<Rigidbody>().velocity * hitMultiplier;
-                GameManager.Instance.HitTutorialBarrel();
+                TutorialManager.Instance.HitTutorialBarrel();
                 _playerManager.obstacleComingEffect.gameObject.SetActive(false); 
                 _playerManager.AddHitAmount();
                 Destroy(gameObject, 5.0f);

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5055427575214868818}
-  - component: {fileID: 5055427575214868821}
+  - component: {fileID: 5055427575332828056}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5055427575214868821
+--- !u!114 &5055427575332828056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5055427575214868820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecde0545fb13054f94b22c4c844968a, type: 3}
+  m_Script: {fileID: 11500000, guid: 41263faea6c43f049ba659fb570c73a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stunnedTime: 3
@@ -48,4 +48,5 @@ MonoBehaviour:
   _xrDirectInteractorR: {fileID: 0}
   stunnedEffect: {fileID: 0}
   obstacleComingEffect: {fileID: 0}
+  toSave: 0
   canSpawnBat: 0

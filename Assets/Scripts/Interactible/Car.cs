@@ -13,7 +13,7 @@ namespace Team13.Round1.TornadoHero
         void Start()
         {
             pullForce = Random.Range(0.001f, 0.01f);
-            Destroy(this.gameObject, destroyAfterSeconds);
+            Destroy(gameObject, destroyAfterSeconds);
         }
 
         public float GetPullForce()

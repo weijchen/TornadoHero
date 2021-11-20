@@ -1,50 +1,23 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
 namespace Team13.Round1.TornadoHero
 {
-    public class GameManager : MonoBehaviour
+    public class TutorialManager : MonoBehaviour
     {
-        public static GameManager Instance = null;
+        public static TutorialManager Instance = null;
 
+        [SerializeField] public GameObject instructionPanel = null;
+        
         private bool isTutorialDone = false;
         private int tutorialStep = 0;
-        private HandPresence[] _handPresences;
         private float timer = 0;
-        private InputDevice leftHandDevice;
-        private InputDevice rightHandDevice;
-        private PlayerManager _playerManager;
-
-        private ObstacleSpawner _obstacleSpawner;
-        private int barrelHitInTutorial = 0;
-        private float gameTimer = 120.0f;
         private bool obstacleIsSpawning = false;
         private bool skyPeopleIsSpawning = false;
         private bool groundPeopleIsSpawning = false;
-        private int finalScore = 0;
-        private static GameManager gameManagerInstance;
-        private bool hasReinitiate = false;
-
-        private float delayTimer = 0f;
-        private float delayTimeToFinalScene = 5.0f;
-
-        [SerializeField] private GameObject instructionPanel = null;
-        [SerializeField] private int saveMultiplier = 1000;
-        [SerializeField] private int hitMultiplier = 500;
-        [SerializeField] private int comboMultiplier = 2;
-        [SerializeField] private int DEFAULT_GAME_TIMER = 120;
-        [SerializeField] private int START_SPAWN_GROUND = 60;
-        [SerializeField] private int START_SPAWN_OBSTACLE = 30;
-        [SerializeField] private int START_SPAWN_ETC = 15;
-        [SerializeField] PeopleSpawnPoint[] _skyPeopleSpawnPoint;
-        [SerializeField] PeopleSpawnPoint[] _groundPeopleSpawnPoint;
-        [SerializeField] private GameObject tornadoObject;
-        [SerializeField] private Transform tornadoLeavePoint;
-        [SerializeField] private float tornadoLeaveSpeed = 7.5f;
+        private int barrelHitInTutorial = 0;
 
         private void Awake()
         {
@@ -58,57 +31,21 @@ namespace Team13.Round1.TornadoHero
             }
         }
 
-        private void Start()
-        {
-            _playerManager = FindObjectOfType<PlayerManager>();
-            _handPresences = FindObjectsOfType<HandPresence>();
-            _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
-        }
-
-        private void Update()
-        {
-            CheckPlayProgress();
-            CheckGameFinish();
-        }
-
         public void RestartGame()
         {
-            gameTimer = DEFAULT_GAME_TIMER;
             obstacleIsSpawning = false;
             skyPeopleIsSpawning = false;
             groundPeopleIsSpawning = false;
         }
 
-        private void CheckGameFinish()
+        public void HitTutorialBarrel()
         {
-            if (gameTimer == 0)
-            {
-                _obstacleSpawner.StopSpawn();
-                foreach (var point in _groundPeopleSpawnPoint)
-                {
-                    point.StopSpawn();
-                }
-
-                foreach (var point in _skyPeopleSpawnPoint)
-                {
-                    point.StopSpawn();
-                }
-
-                delayTimer += Time.deltaTime;
-
-                tornadoObject.transform.position = Vector3.MoveTowards(tornadoObject.transform.position,
-                    tornadoLeavePoint.position, tornadoLeaveSpeed * Time.deltaTime);
-
-                if (delayTimer > delayTimeToFinalScene)
-                {
-                    SceneManager.LoadScene("FinalEndScene");
-                }
-            }
+            barrelHitInTutorial += 1;
         }
 
         public void CheckPlayProgress()
         {
-            string currSceneName = GetCurrScene();
+            string currSceneName = GameManager.Instance.GetCurrScene();
 
             if (currSceneName.Equals("FinalPlayScene"))
             {
@@ -130,7 +67,7 @@ namespace Team13.Round1.TornadoHero
                     {
                         instructionPanel.transform.GetChild(0).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(1).gameObject.SetActive(true);
-                        if (rightHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) &&
+                        if (GameManager.Instance.rightHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) &&
                             triggerValue)
                         {
                             tutorialStep += 1;
@@ -141,7 +78,7 @@ namespace Team13.Round1.TornadoHero
                     {
                         instructionPanel.transform.GetChild(1).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(2).gameObject.SetActive(true);
-                        if (rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue) &&
+                        if (GameManager.Instance.rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue) &&
                             gripValue)
                         {
                             tutorialStep += 1;
@@ -152,7 +89,7 @@ namespace Team13.Round1.TornadoHero
                     {
                         instructionPanel.transform.GetChild(2).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(3).gameObject.SetActive(true);
-                        if (rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue) &&
+                        if (GameManager.Instance.rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue) &&
                             !gripValue)
                         {
                             timer = 0;
@@ -165,7 +102,7 @@ namespace Team13.Round1.TornadoHero
                         instructionPanel.transform.GetChild(3).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(4).gameObject.SetActive(true);
 
-                        if (_playerManager.GetSavedAmount() == 1)
+                        if (PlayerManager.Instance.GetSavedAmount() == 1)
                         {
                             timer = 0;
                             tutorialStep += 1;
@@ -178,7 +115,7 @@ namespace Team13.Round1.TornadoHero
                             }
                             else if (timer < 0.1f)
                             {
-                                _skyPeopleSpawnPoint[0].SpawnPeople();
+                                GameManager.Instance._skyPeopleSpawnPoint[0].SpawnPeople();
                             }
 
                             timer += Time.deltaTime;
@@ -203,7 +140,7 @@ namespace Team13.Round1.TornadoHero
                         }
                         else if (timer == 0)
                         {
-                            _obstacleSpawner.SpawnObstacle();
+                            GameManager.Instance._obstacleSpawner.SpawnObstacle();
                         }
 
                         timer += Time.deltaTime;
@@ -214,7 +151,7 @@ namespace Team13.Round1.TornadoHero
                         instructionPanel.transform.GetChild(5).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(6).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(7).gameObject.SetActive(true);
-                        if (_playerManager.canSpawnBat)
+                        if (PlayerManager.Instance.canSpawnBat)
                         {
                             tutorialStep += 1;
                         }
@@ -224,13 +161,13 @@ namespace Team13.Round1.TornadoHero
                     {
                         instructionPanel.transform.GetChild(7).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(8).gameObject.SetActive(true);
-                        if (!_playerManager.canSpawnBat)
+                        if (!PlayerManager.Instance.canSpawnBat)
                         {
                             tutorialStep -= 1;
                             instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
                         }
 
-                        if (leftHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) &&
+                        if (GameManager.Instance.leftHandDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) &&
                             triggerValue)
                         {
                             tutorialStep += 1;
@@ -241,9 +178,9 @@ namespace Team13.Round1.TornadoHero
                     {
                         instructionPanel.transform.GetChild(8).gameObject.SetActive(false);
                         instructionPanel.transform.GetChild(9).gameObject.SetActive(true);
-                        if (leftHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripLValue) &&
+                        if (GameManager.Instance.leftHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripLValue) &&
                             gripLValue &&
-                            rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripRValue) &&
+                            GameManager.Instance.rightHandDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripRValue) &&
                             gripRValue)
                         {
                             tutorialStep += 1;
@@ -265,12 +202,12 @@ namespace Team13.Round1.TornadoHero
                         {
                             if (timer > 10)
                             {
-                                _obstacleSpawner.SpawnObstacle();
+                                GameManager.Instance._obstacleSpawner.SpawnObstacle();
                                 timer = 0;
                             }
                             else if (timer == 0)
                             {
-                                _obstacleSpawner.SpawnObstacle();
+                                GameManager.Instance._obstacleSpawner.SpawnObstacle();
                             }
                         }
 
@@ -290,19 +227,19 @@ namespace Team13.Round1.TornadoHero
                     }
                     else
                     {
-                        foreach (var point in _groundPeopleSpawnPoint)
+                        foreach (var point in GameManager.Instance._groundPeopleSpawnPoint)
                         {
                             point.SpawnPeopleContinuous();
                         }
 
-                        if (!hasReinitiate)
+                        if (!GameManager.Instance.hasReinitiate)
                         {
-                            _playerManager.InitiateState();
+                            PlayerManager.Instance.InitiateState();
                             instructionPanel.transform.GetChild(11).gameObject.SetActive(false);
                             instructionPanel.gameObject.SetActive(false);
                             isTutorialDone = true;
-                            gameTimer = DEFAULT_GAME_TIMER;
-                            hasReinitiate = true;
+                            GameManager.Instance.gameTimer = GameManager.Instance.gameTime;
+                            GameManager.Instance.hasReinitiate = true;
                         }
                     }
                 }
@@ -311,7 +248,7 @@ namespace Team13.Round1.TornadoHero
                     // sky people spawning
                     if (!skyPeopleIsSpawning)
                     {
-                        foreach (var point in _skyPeopleSpawnPoint)
+                        foreach (var point in GameManager.Instance._skyPeopleSpawnPoint)
                         {
                             point.SpawnPeopleContinuousNew();
                         }
@@ -320,22 +257,22 @@ namespace Team13.Round1.TornadoHero
                     skyPeopleIsSpawning = true;
 
                     // obstacles spawning
-                    if (gameTimer < START_SPAWN_OBSTACLE)
+                    if (GameManager.Instance.gameTimer < GameManager.Instance.startSpawnObstacle)
                     {
                         if (!obstacleIsSpawning)
                         {
-                            _obstacleSpawner.SpawnObstacleContinuousNew();
+                            GameManager.Instance._obstacleSpawner.SpawnObstacleContinuousNew();
                         }
 
                         obstacleIsSpawning = true;
                     }
 
                     // ground people spawning
-                    if (gameTimer < START_SPAWN_GROUND)
+                    if (GameManager.Instance.gameTimer < GameManager.Instance.startSpawnGround)
                     {
                         if (!groundPeopleIsSpawning)
                         {
-                            foreach (var point in _groundPeopleSpawnPoint)
+                            foreach (var point in GameManager.Instance._groundPeopleSpawnPoint)
                             {
                                 point.SpawnPeopleContinuousNew();
                             }
@@ -344,96 +281,17 @@ namespace Team13.Round1.TornadoHero
                         groundPeopleIsSpawning = true;
                     }
 
-                    if (gameTimer > 0)
+                    if (GameManager.Instance.gameTimer > 0)
                     {
-                        gameTimer -= Time.deltaTime;
+                        GameManager.Instance.gameTimer -= Time.deltaTime;
                     }
                     else
                     {
-                        gameTimer = 0f;
+                        GameManager.Instance.gameTimer = 0f;
                     }
                 }
             }
         }
-
-        public void HitTutorialBarrel()
-        {
-            barrelHitInTutorial += 1;
-        }
-
-        public void StartGame()
-        {
-            SceneManager.LoadScene("FinalPlayScene");
-        }
-
-        public void ExitGame()
-        {
-            Application.Quit();
-        }
-
-        public string GetCurrScene()
-        {
-            return SceneManager.GetActiveScene().name;
-        }
-
-        public void SetLeftHandDevice(InputDevice device)
-        {
-            leftHandDevice = device;
-        }
-
-        public void SetRightHandDevice(InputDevice device)
-        {
-            rightHandDevice = device;
-        }
-
-        public float GetGameTimer()
-        {
-            return gameTimer;
-        }
-
-        public int GetSaveScore()
-        {
-            return _playerManager.GetSavedAmount() * saveMultiplier;
-        }
-
-        public int GetHitScore()
-        {
-            return _playerManager.GetHitAmount() * hitMultiplier;
-        }
-
-        public int GetComboScore()
-        {
-            return GetSaveScore() * comboMultiplier;
-        }
-
-        public int GetFinalScore()
-        {
-            finalScore = GetSaveScore() + GetHitScore() + GetComboScore();
-            return finalScore;
-        }
-
-        public string GetRank()
-        {
-            int finalScore = GetFinalScore();
-
-            if (finalScore >= 10000)
-            {
-                return "A";
-            }
-
-            if (finalScore < 10000 && finalScore >= 5000)
-            {
-                return "B";
-            }
-
-            if (finalScore < 5000 && finalScore >= 2500)
-            {
-                return "C";
-            }
-            else
-            {
-                return "D";
-            }
-        }
     }
+
 }
