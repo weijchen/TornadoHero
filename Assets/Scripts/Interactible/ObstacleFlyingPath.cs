@@ -1,23 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class ObstacleFlyingPath : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    [SerializeField] List<Transform> pathPoints;
-
-    private void Start()
+    public class ObstacleFlyingPath : MonoBehaviour
     {
-        foreach (Transform child in transform)
+        [SerializeField] List<Transform> pathPoints;
+
+        private void Start()
         {
-            pathPoints.Add(child);
+            foreach (Transform child in transform)
+            {
+                pathPoints.Add(child);
+            }
         }
-    }
 
-    public List<Transform> GetPathPoints()
-    {
-        return pathPoints;
+        public List<Transform> GetPathPoints()
+        {
+            return pathPoints;
+        }
     }
 }

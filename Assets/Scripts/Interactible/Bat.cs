@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bat : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    private AudioSource _audioSource;
-
-    private void Awake()
+    public class Bat : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-    }
+        private AudioSource _audioSource;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.tag == "Obstacle")
+        private void Awake()
         {
-            _audioSource.Play();
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.transform.tag == "Obstacle")
+            {
+                _audioSource.Play();
+            }
         }
     }
 }

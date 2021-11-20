@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    private PlayerManager _playerManager;
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        _playerManager = FindObjectOfType<PlayerManager>();
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag == "Obstacle")
+        private PlayerManager _playerManager;
+        void Start()
         {
-            _playerManager.TurnStunned();            
+            _playerManager = FindObjectOfType<PlayerManager>();
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.transform.tag == "Obstacle")
+            {
+                _playerManager.TurnStunned();            
+            }
         }
     }
 }

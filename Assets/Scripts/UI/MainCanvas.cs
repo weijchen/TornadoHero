@@ -1,36 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Team13.Round1.TornadoHero;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
-public class MainCanvas : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    [SerializeField] private TMP_Text savedAmountText;
-    [SerializeField] private TMP_Text deadAmountText;
-    [SerializeField] private TMP_Text gameTimerCountdown;
+    public class MainCanvas : MonoBehaviour
+    {
+        [SerializeField] private TMP_Text savedAmountText;
+        [SerializeField] private TMP_Text deadAmountText;
+        [SerializeField] private TMP_Text gameTimerCountdown;
 
-    private PlayerManager _playerManager;
-    private GameManager _gameManager;
+        private PlayerManager _playerManager;
     
-    void Start()
-    {
-        _playerManager = FindObjectOfType<PlayerManager>();
-        _gameManager = FindObjectOfType<GameManager>();
-    }
-
-    void Update()
-    {
-        savedAmountText.text = _playerManager.GetSavedAmount().ToString();
-        deadAmountText.text = _playerManager.GetDeadAmount().ToString();
-        string timerString = _gameManager.GetGameTimer().ToString();
-        if (timerString.Length >= 5)
+        void Start()
         {
-            gameTimerCountdown.text = timerString.Substring(0, 5);
+            _playerManager = FindObjectOfType<PlayerManager>();
         }
-        else
+
+        void Update()
         {
-            gameTimerCountdown.text = timerString;
+            savedAmountText.text = _playerManager.GetSavedAmount().ToString();
+            deadAmountText.text = _playerManager.GetDeadAmount().ToString();
+            string timerString = GameManager.Instance.GetGameTimer().ToString();
+            if (timerString.Length >= 5)
+            {
+                gameTimerCountdown.text = timerString.Substring(0, 5);
+            }
+            else
+            {
+                gameTimerCountdown.text = timerString;
+            }
         }
     }
 }

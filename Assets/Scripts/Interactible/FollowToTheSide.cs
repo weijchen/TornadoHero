@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowToTheSide : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    public Transform target;
-    public Vector3 offset;
-    
-    void FixedUpdate()
+    public class FollowToTheSide : MonoBehaviour
     {
-        transform.position = target.position + offset;
+        public Transform target;
+        public Vector3 offset;
+    
+        void FixedUpdate()
+        {
+            transform.position = target.position + offset;
+        }
     }
 }

@@ -2,29 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class generateHuman : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-
-    //private IEnumerator coroutine;
-    private bool isStart;
-    public GameObject CreateObject;
-
-    void Start()
+    public class generateHuman : MonoBehaviour
     {
-        StartCoroutine("WaitAndPrint");
-    }
 
-    void Update()
-    {
-        
-    }
+        //private IEnumerator coroutine;
+        private bool isStart;
+        public GameObject CreateObject;
 
-    private IEnumerator WaitAndPrint()
-    {
-        for (; ; )
+        void Start()
         {
-            GameObject.Instantiate(CreateObject, gameObject.transform.position, gameObject.transform.rotation);
-            yield return new WaitForSeconds(Random.Range(5f,12f));
-        }    
+            StartCoroutine("WaitAndPrint");
+        }
+
+        void Update()
+        {
+        
+        }
+
+        private IEnumerator WaitAndPrint()
+        {
+            for (; ; )
+            {
+                GameObject.Instantiate(CreateObject, gameObject.transform.position, gameObject.transform.rotation);
+                yield return new WaitForSeconds(Random.Range(5f,12f));
+            }    
+        }
     }
 }

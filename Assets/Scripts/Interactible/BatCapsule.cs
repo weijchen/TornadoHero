@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatCapsule : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-
-    [SerializeField] private BatFollower _batFollowerPrefab;
-
-    private void Start()
+    public class BatCapsule : MonoBehaviour
     {
-        SpawnBatCapsuleFollower();
-    }
 
-    private void SpawnBatCapsuleFollower()
-    {
-        var follower = Instantiate(_batFollowerPrefab);
-        follower.transform.position = transform.position;
-        follower.SetFollowTarget(this);
+        [SerializeField] private BatFollower _batFollowerPrefab;
+
+        private void Start()
+        {
+            SpawnBatCapsuleFollower();
+        }
+
+        private void SpawnBatCapsuleFollower()
+        {
+            var follower = Instantiate(_batFollowerPrefab);
+            follower.transform.position = transform.position;
+            follower.SetFollowTarget(this);
+        }
     }
 }

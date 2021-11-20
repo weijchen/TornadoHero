@@ -2,32 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShouldBlow : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    private float startTime;
-    private float SpeedAdjust = 0.9f;
-    private CapsuleCollider capsuleCollider;
-
-    [SerializeField] private float blowTime = 3.0f;
-    public bool shouldBlow;
-
-    void Start()
+    public class ShouldBlow : MonoBehaviour
     {
-        shouldBlow = false;
-        startTime = Time.time;
-        capsuleCollider = GetComponent<CapsuleCollider>();
-    }
+        private float startTime;
+        private float SpeedAdjust = 0.9f;
+        private CapsuleCollider capsuleCollider;
 
-    void Update()
-    {
-        if (Time.time - startTime <= blowTime)
+        [SerializeField] private float blowTime = 3.0f;
+        public bool shouldBlow;
+
+        void Start()
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * SpeedAdjust, Space.World);
+            shouldBlow = false;
+            startTime = Time.time;
+            capsuleCollider = GetComponent<CapsuleCollider>();
         }
-        else
+
+        void Update()
         {
-            capsuleCollider.radius = 3.0f;
-            shouldBlow = true;
+            if (Time.time - startTime <= blowTime)
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * SpeedAdjust, Space.World);
+            }
+            else
+            {
+                capsuleCollider.radius = 3.0f;
+                shouldBlow = true;
+            }
         }
     }
 }

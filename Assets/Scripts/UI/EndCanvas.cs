@@ -6,49 +6,49 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class EndCanvas : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    [SerializeField] private TMP_Text saveScoreText;
-    [SerializeField] private TMP_Text hitScoreText;
-    [SerializeField] private TMP_Text comboScoreText;
-    [SerializeField] private TMP_Text finalScoreText;
-    [SerializeField] private TMP_Text rankText;
-    [SerializeField] private GameObject scrollObject;
-    [SerializeField] private Transform targetPosition;
-    [SerializeField] private float scrollSpeed = 5.0f;
-    [SerializeField] private GameObject creditCube;
-
-    private GameManager _gameManager;
-
-    private void Start()
+    public class EndCanvas : MonoBehaviour
     {
-        _gameManager = FindObjectOfType<GameManager>();
-        Time.timeScale = 1;
-    }
+        [SerializeField] private TMP_Text saveScoreText;
+        [SerializeField] private TMP_Text hitScoreText;
+        [SerializeField] private TMP_Text comboScoreText;
+        [SerializeField] private TMP_Text finalScoreText;
+        [SerializeField] private TMP_Text rankText;
+        [SerializeField] private GameObject scrollObject;
+        [SerializeField] private Transform targetPosition;
+        [SerializeField] private float scrollSpeed = 5.0f;
+        [SerializeField] private GameObject creditCube;
 
-    void Update()
-    {
-        saveScoreText.text = _gameManager.GetSaveScore().ToString();
-        hitScoreText.text = _gameManager.GetHitScore().ToString();
-        comboScoreText.text = _gameManager.GetComboScore().ToString();
-        finalScoreText.text = _gameManager.GetFinalScore().ToString();
-        rankText.text = _gameManager.GetRank();
-        ScoreBoardMoveToPosition();
-    }
+        private void Start()
+        {
+            Time.timeScale = 1;
+        }
 
-    public void CreditButtonOnClick()
-    {
-        creditCube.SetActive(true);
-    }
+        void Update()
+        {
+            saveScoreText.text = GameManager.Instance.GetSaveScore().ToString();
+            hitScoreText.text = GameManager.Instance.GetHitScore().ToString();
+            comboScoreText.text = GameManager.Instance.GetComboScore().ToString();
+            finalScoreText.text = GameManager.Instance.GetFinalScore().ToString();
+            rankText.text = GameManager.Instance.GetRank();
+            ScoreBoardMoveToPosition();
+        }
 
-    public void ExitButtonOnClick()
-    {
-        Application.Quit();
-    }
+        public void CreditButtonOnClick()
+        {
+            creditCube.SetActive(true);
+        }
 
-    public void ScoreBoardMoveToPosition()
-    {
-        // scrollObject.transform.position = Vector3.Lerp(scrollObject.transform.position, target.position + (scrollObject.transform.position - target.position).normalized * 10, Time.deltaTime * 5);
-        scrollObject.transform.position = Vector3.MoveTowards(scrollObject.transform.position, targetPosition.position, scrollSpeed * Time.deltaTime);
+        public void ExitButtonOnClick()
+        {
+            Application.Quit();
+        }
+
+        public void ScoreBoardMoveToPosition()
+        {
+            // scrollObject.transform.position = Vector3.Lerp(scrollObject.transform.position, target.position + (scrollObject.transform.position - target.position).normalized * 10, Time.deltaTime * 5);
+            scrollObject.transform.position = Vector3.MoveTowards(scrollObject.transform.position, targetPosition.position, scrollSpeed * Time.deltaTime);
+        }
     }
 }

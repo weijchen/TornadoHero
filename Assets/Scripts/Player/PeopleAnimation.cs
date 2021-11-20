@@ -1,41 +1,44 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeopleAnimation : MonoBehaviour
+namespace Team13.Round1.TornadoHero
 {
-    [SerializeField] private GameObject parent;
-    [SerializeField] private float transformDistance = 1.0f;
+    public class PeopleAnimation : MonoBehaviour
+    {
+        [SerializeField] private GameObject parent;
+        [SerializeField] private float transformDistance = 1.0f;
     
-     private Animator animator;
-     private bool isGrounded = false;
+        private Animator animator;
+        private bool isGrounded = false;
 
-    void Start()
-    {
-        animator = gameObject.GetComponent<Animator>();
-    }
+        void Start()
+        {
+            animator = gameObject.GetComponent<Animator>();
+        }
 
-    void Update()
-    {
-        SetRigidBodyConstraint();
+        void Update()
+        {
+            SetRigidBodyConstraint();
         
-        if (parent.transform.position.y > transformDistance)
-        {
-            isGrounded = false;
-            animator.SetBool("OnGround", false);
+            if (parent.transform.position.y > transformDistance)
+            {
+                isGrounded = false;
+                animator.SetBool("OnGround", false);
+            }
+            else
+            {
+                isGrounded = true;
+                animator.SetBool("OnGround", true);
+            }
         }
-        else
-        {
-            isGrounded = true;
-            animator.SetBool("OnGround", true);
-        }
-    }
 
-    private void SetRigidBodyConstraint()
-    {
-        if (isGrounded)
+        private void SetRigidBodyConstraint()
         {
-            parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            if (isGrounded)
+            {
+                parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            }
         }
     }
 }
