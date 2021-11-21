@@ -182,7 +182,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car_Green (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 689390682, guid: 4b2b96dc569c9f64386ca71181001e39, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b2b96dc569c9f64386ca71181001e39, type: 3}
 --- !u!4 &27778726 stripped
 Transform:
@@ -200,6 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &34584382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1259899469848168372, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
+  m_PrefabInstance: {fileID: 4123614003441663156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &86950726
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +531,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7200316610621731864, guid: f6ab6fb4130524d4994519a0299a0055, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f6ab6fb4130524d4994519a0299a0055, type: 3}
 --- !u!4 &606108445 stripped
 Transform:
@@ -1039,6 +1046,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1949667136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949667138}
+  - component: {fileID: 1949667137}
+  m_Layer: 0
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1949667137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949667136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b526776e996c714c9eb5b2e3c70c3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instructionPanel: {fileID: 2067036853}
+--- !u!4 &1949667138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949667136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023135113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1125,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3673414159566045536, guid: 4b2b96dc569c9f64386ca71181001e39, type: 3}
   m_PrefabInstance: {fileID: 689390680}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2067036853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5634694481211868230, guid: 04361808743bc8247b1ae82a5015162c, type: 3}
+  m_PrefabInstance: {fileID: 4123614003441663156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3900458156452017741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1081,10 +1137,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: gameTimer
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: tornadoObject
       value: 
@@ -1097,14 +1149,6 @@ PrefabInstance:
       propertyPath: tornadoLeavePoint
       value: 
       objectReference: {fileID: 1049604891}
-    - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: _skyPeopleSpawnPoint.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
-      propertyPath: _groundPeopleSpawnPoint.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: _skyPeopleSpawnPoint.Array.data[0]
       value: 
@@ -1411,6 +1455,10 @@ PrefabInstance:
       value: Player Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5055427575332828056, guid: f1e3e75157b6b8849be4d2776f754c6e, type: 3}
+      propertyPath: stunnedEffect
+      value: 
+      objectReference: {fileID: 34584382}
+    - target: {fileID: 5055427575332828056, guid: f1e3e75157b6b8849be4d2776f754c6e, type: 3}
       propertyPath: _xrDirectInteractorL
       value: 
       objectReference: {fileID: 975381104}
@@ -1418,6 +1466,10 @@ PrefabInstance:
       propertyPath: _xrDirectInteractorR
       value: 
       objectReference: {fileID: 28711251}
+    - target: {fileID: 5055427575332828056, guid: f1e3e75157b6b8849be4d2776f754c6e, type: 3}
+      propertyPath: obstacleComingEffect
+      value: 
+      objectReference: {fileID: 493570719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1e3e75157b6b8849be4d2776f754c6e, type: 3}
 --- !u!1001 &5607612875277916908
@@ -1484,46 +1536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: spawnTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: specialObstacle
-      value: 
-      objectReference: {fileID: 5174621862634685464, guid: 54b948c2f961dc645a9ea3e844f3aac4, type: 3}
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: obstacleComingEffect
-      value: 
-      objectReference: {fileID: 493570719}
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: obstaclePrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: obstaclePrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5174621862634685464, guid: 566d3f1d5c0b63c4e82a0882a05da295, type: 3}
-    - target: {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: obstaclePrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 5174621862634685464, guid: 14bb9aa6da014d14c88c73536f0b7152, type: 3}
-    - target: {fileID: 750124817, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_Radius
-      value: 14.050177
-      objectReference: {fileID: 0}
-    - target: {fileID: 750124817, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_Center.x
-      value: 3.2501786
-      objectReference: {fileID: 0}
-    - target: {fileID: 750124817, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0056925453
-      objectReference: {fileID: 0}
-    - target: {fileID: 877793424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7337789652841382042, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_Name
       value: Tornado
@@ -1531,18 +1543,6 @@ PrefabInstance:
     - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7155111
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7155111
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7155111
       objectReference: {fileID: 0}
     - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1584,34 +1584,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 566733313, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+    - target: {fileID: 7337789652912683424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: obstacleComingEffect
+      value: 
+      objectReference: {fileID: 493570719}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
---- !u!1 &7337789652912683423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 566733311, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+--- !u!114 &7337789652912683424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7337789652912683424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
   m_PrefabInstance: {fileID: 7337789652912683422}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7337789652912683424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7337789652912683423}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ec1fe9378a1fb4cb3d0eeee5907fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 5174621862634685464, guid: 566d3f1d5c0b63c4e82a0882a05da295, type: 3}
-  - {fileID: 5174621862634685464, guid: 14bb9aa6da014d14c88c73536f0b7152, type: 3}
-  - {fileID: 5174621862634685464, guid: 54b948c2f961dc645a9ea3e844f3aac4, type: 3}
-  specialObstacle: {fileID: 0}
-  spawnTime: 2
-  obstacleComingEffect: {fileID: 0}
-  coroutineIsRunning: 1
 --- !u!1001 &8857203926692262591
 PrefabInstance:
   m_ObjectHideFlags: 0

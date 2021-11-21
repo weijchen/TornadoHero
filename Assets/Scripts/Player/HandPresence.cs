@@ -165,7 +165,7 @@ namespace Team13.Round1.TornadoHero
                         GameManager.Instance.SetLeftHandDevice(device);
                     }
                 }
-                
+
                 prefab = controllerPrefabs.Find(controller => controller.name == targetDevice.name);
 
                 if (prefab)

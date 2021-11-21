@@ -40,11 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6041353621350644763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50cc35f326514a44b2688931a180c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: f4260a41219c3724e85fda008d33b162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  transformDistance: 2
+  destroyTime: 20
 --- !u!1001 &6851763723213914442
 PrefabInstance:
   m_ObjectHideFlags: 0

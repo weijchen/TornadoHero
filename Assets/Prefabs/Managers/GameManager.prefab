@@ -43,16 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c645a3b752f17449b4f896eab22351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionPanel: {fileID: 0}
+  gameTime: 80
+  startSpawnGround: 60
+  startSpawnObstacle: 40
+  startSpawnETC: 20
   saveMultiplier: 1000
   hitMultiplier: 500
   comboMultiplier: 2
-  DEFAULT_GAME_TIMER: 120
-  START_SPAWN_GROUND: 60
-  START_SPAWN_OBSTACLE: 30
-  START_SPAWN_ETC: 15
-  _skyPeopleSpawnPoint: []
-  _groundPeopleSpawnPoint: []
   tornadoObject: {fileID: 0}
   tornadoLeavePoint: {fileID: 0}
   tornadoLeaveSpeed: 7.5
+  _skyPeopleSpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  _groundPeopleSpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  isTutorialDone: 0
+  _obstacleSpawner: {fileID: 0}
+  gameTimer: 80
+  hasReinitiate: 0

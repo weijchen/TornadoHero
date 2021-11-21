@@ -327,7 +327,6 @@ GameObject:
   - component: {fileID: 2629962901891758896}
   - component: {fileID: 603763935670516335}
   - component: {fileID: 1615466557611425880}
-  - component: {fileID: 2629962901891758894}
   - component: {fileID: 2629962901891758895}
   m_Layer: 0
   m_Name: PlayerB_new
@@ -445,18 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 20
---- !u!114 &2629962901891758894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2629962901891758897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50cc35f326514a44b2688931a180c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2629962901891758895
 Animator:
   serializedVersion: 3
