@@ -832,6 +832,14 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 2139490888}
+    - target: {fileID: 2891359747757582525, guid: 0205d613dfeedb64d927f53a225c1a8f, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 7455832284866043158, guid: ac408d31f0ae4014982a917e23e6cd4f, type: 3}
+    - target: {fileID: 2891359748009354836, guid: 0205d613dfeedb64d927f53a225c1a8f, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 4896891462164257911, guid: a02934ea85e029e418a3465f4f7bbb29, type: 3}
     - target: {fileID: 2891359748009354837, guid: 0205d613dfeedb64d927f53a225c1a8f, type: 3}
       propertyPath: m_InteractionManager
       value: 
