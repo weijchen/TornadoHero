@@ -45,38 +45,35 @@ namespace Team13.Round1.TornadoHero
         
         void Update()
         {
-            if (!FindObjectOfType<StartCanvas>())
+            currScene = GameManager.Instance.GetCurrScene();
+        
+            if (!targetDevice.isValid)
             {
-                currScene = GameManager.Instance.GetCurrScene();
-            
-                if (!targetDevice.isValid)
+                TryInitialize();
+            }
+            else
+            {
+                UpdateDevicePosition();
+                if (showController)
                 {
-                    TryInitialize();
+                    spawnedController.SetActive(true);
+                    spawnedHandModel.SetActive(false);
                 }
                 else
                 {
-                    UpdateDevicePosition();
-                    if (showController)
-                    {
-                        spawnedController.SetActive(true);
-                        spawnedHandModel.SetActive(false);
-                    }
-                    else
-                    {
-                        spawnedController.SetActive(false);
-                        spawnedHandModel.SetActive(true);
+                    spawnedController.SetActive(false);
+                    spawnedHandModel.SetActive(true);
 
-                        if (currScene.Equals(SceneCategory.Main.ToString()))
+                    if (currScene.Equals(SceneCategory.Main.ToString()))
+                    {
+                        CheckHookSpawn();
+                        CheckBatRequirement();
+                        if (isBat)
                         {
-                            CheckHookSpawn();
-                            CheckBatRequirement();
-                            if (isBat)
-                            {
-                                CheckIsBat();
-                            }
+                            CheckIsBat();
                         }
-                        UpdateHandAnimation();
                     }
+                    UpdateHandAnimation();
                 }
             }
         }

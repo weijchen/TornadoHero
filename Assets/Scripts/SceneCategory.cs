@@ -2,27 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneCategory
+namespace Team13.Round1.TornadoHero
 {
-    private SceneCategory(string value)
+    public class SceneCategory : MonoBehaviour
     {
-        Value = value;
-    }
+        public static string Start
+        {
+            get { return "StartScene"; }
+        }
     
-    public string Value { get; private set; }
+        public static string Main
+        {
+            get { return "MainScene"; }
+        }
     
-    public static SceneCategory Start
-    {
-        get { return new SceneCategory("StartScene"); }
-    }
-    
-    public static SceneCategory Main
-    {
-        get { return new SceneCategory("MainScene"); }
-    }
-    
-    public static SceneCategory End
-    {
-        get { return new SceneCategory("EndScene"); }
+        public static string End
+        {
+            get { return "EndScene"; }
+        }
     }
 }

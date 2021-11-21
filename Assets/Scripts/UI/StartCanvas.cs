@@ -169,7 +169,7 @@ namespace Team13.Round1.TornadoHero
         
         public void StartGame()
         {
-            SceneManager.LoadScene(SceneCategory.Main.ToString());
+            SceneManager.LoadScene(SceneCategory.Main);
         }
     }
 }
