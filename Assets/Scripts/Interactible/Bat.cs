@@ -7,18 +7,11 @@ namespace Team13.Round1.TornadoHero
 {
     public class Bat : MonoBehaviour
     {
-        private AudioSource _audioSource;
-
-        private void Awake()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-
         private void OnCollisionEnter(Collision other)
         {
             if (other.transform.CompareTag("Obstacle"))
             {
-                _audioSource.Play();
+                SoundManager.Instance.PlaySFX(SFXIndex.Hit);
             }
         }
     }

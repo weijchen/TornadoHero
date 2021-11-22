@@ -227,8 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RopePrefab: {fileID: 8341184847315708712, guid: d1bf1359eccdb5745a606fc66e104ab0, type: 3}
-  SavedPeople: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
-  callTime: 20
+  SavedPeople: {fileID: 9183923628359311147}
 --- !u!95 &889139027
 Animator:
   serializedVersion: 3
@@ -310,6 +309,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3772206462758208255, guid: 2eae042ab36b6c04b828c7230c77be00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2eae042ab36b6c04b828c7230c77be00, type: 3}
+--- !u!1 &9183923628359311147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3617486674118972012, guid: 2eae042ab36b6c04b828c7230c77be00, type: 3}
+  m_PrefabInstance: {fileID: 5566516308796656967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1605523796299819036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6559433990222996827, guid: 2eae042ab36b6c04b828c7230c77be00, type: 3}

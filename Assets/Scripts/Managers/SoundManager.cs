@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace Team13.Round1.TornadoHero
     public enum SFXIndex : int
     {
         Tornado = 0,
-        Hit = 1
+        Hit = 1,
+        HookSpawn = 2
     }
     
     public enum VOIndex : int

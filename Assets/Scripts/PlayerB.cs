@@ -16,7 +16,7 @@ namespace Team13.Round1.TornadoHero
         void Start()
         {
             BornVector = new Vector3(0, Random.Range(-8.0f, 8.0f), 0);
-            Invoke("DestroyPrefab", destroyTime);
+            Invoke(nameof(DestroyPrefab), destroyTime);
         }
 
         private void OnCollisionEnter(Collision other)

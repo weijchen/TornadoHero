@@ -11,7 +11,6 @@ namespace Team13.Round1.TornadoHero
     {
         [SerializeField] private GameObject RopePrefab;
         [SerializeField] private GameObject SavedPeople;
-        [SerializeField] float callTime = 20.0f;
 
         private Vector3 currentPosition;
         private Quaternion exitPositionValue;
@@ -23,7 +22,6 @@ namespace Team13.Round1.TornadoHero
         private int maxPartCount = 150;
         private bool hasCatch = false;
         private bool hasResume = false;
-        private Vector3 currPoint = Vector3.zero;
         private float speed = 25.0f;
 
         private void Update()

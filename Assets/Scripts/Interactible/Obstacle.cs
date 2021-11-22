@@ -13,7 +13,6 @@ namespace Team13.Round1.TornadoHero
     public class Obstacle : MonoBehaviour
     {
         private Rigidbody _rigidbody;
-        private AudioSource _audioSource;
         private List<Transform> pickedPath;
         private int pointIndex;
         private XRRig playerPosition;
@@ -29,7 +28,6 @@ namespace Team13.Round1.TornadoHero
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -94,7 +92,7 @@ namespace Team13.Round1.TornadoHero
 
             if ((groundLayer.value & (1 << other.transform.gameObject.layer)) > 0)
             {
-                _audioSource.Play();
+                SoundManager.Instance.PlaySFX(SFXIndex.Hit);
             }
             PlayerManager.Instance.obstacleComingEffect.gameObject.SetActive(false);
         }

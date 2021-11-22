@@ -259,7 +259,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _obstacleFlyingPaths: []
-  speed: 2
+  speed: 7.5
   arrivedDistance: 0.5
   destroyTime: 0.2
 --- !u!1 &6909137683093431241
