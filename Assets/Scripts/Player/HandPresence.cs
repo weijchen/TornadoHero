@@ -132,6 +132,7 @@ namespace Team13.Round1.TornadoHero
                     InputTracking.GetNodeStates(_nodeStates);
                     var rightHandState = _nodeStates.FirstOrDefault(node => node.nodeType == XRNode.RightHand);
                     rightHandState.TryGetPosition(out rightHandPosition);
+                    SoundManager.Instance.PlaySFX(SFXIndex.HookSpawn);
                     Instantiate(hookPrefab, rightHandPosition + new Vector3(0, 1.0f, 0), Quaternion.identity);
                     hasSpawnHook = true;
                 }
@@ -202,7 +203,7 @@ namespace Team13.Round1.TornadoHero
 
         void UpdateHandAnimation()
         {
-            if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+            if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out var triggerValue))
             {
                 handAnimator.SetFloat("Trigger", triggerValue);
             }
@@ -211,7 +212,7 @@ namespace Team13.Round1.TornadoHero
                 handAnimator.SetFloat("Trigger", 0);
             }
             
-            if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+            if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out var gripValue))
             {
                 handAnimator.SetFloat("Grip", gripValue);
             }

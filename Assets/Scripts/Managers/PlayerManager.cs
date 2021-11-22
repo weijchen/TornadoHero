@@ -24,8 +24,10 @@ namespace Team13.Round1.TornadoHero
 
         private bool isStunned = false;
         private float accumTime = 0f;
-        public bool canSpawnBat = false;
         private int finalScore = 0;
+        public int currCombo = 0;
+        public int totalCombo = 0;
+        public bool canSpawnBat = false;
 
         private void Awake()
         {
@@ -85,6 +87,8 @@ namespace Team13.Round1.TornadoHero
 
         public void TurnStunned()
         {
+            totalCombo += currCombo;
+            currCombo = 0;
             isStunned = true;
             stunnedEffect.gameObject.SetActive(true);
             obstacleComingEffect.gameObject.SetActive(false);
@@ -108,6 +112,7 @@ namespace Team13.Round1.TornadoHero
         public void AddHitAmount()
         {
             hitAmount += 1;
+            currCombo += 1;
         }
     }
 }

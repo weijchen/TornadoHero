@@ -9,20 +9,29 @@ namespace Team13.Round1.TornadoHero
 {
     public class Hook : MonoBehaviour
     {
+        [Header("Prefabs")]
         [SerializeField] private GameObject RopePrefab;
         [SerializeField] private GameObject SavedPeople;
+        [SerializeField] private int maxPartCount = 150;
+        
+        [Header("Movement")]
+        [SerializeField] private float resumeDuration = 5.0f;
 
-        private Vector3 currentPosition;
+        private Vector3 startPosition;
+        private Vector3 catchPosition;
         private Quaternion exitPositionValue;
         private Quaternion exitRotationValue;
         
-        private bool leaveHand = false;
         private List<GameObject> ropes = new List<GameObject>();
         private int partCount = 0;
-        private int maxPartCount = 150;
+        private bool leaveHand = false;
         private bool hasCatch = false;
         private bool hasResume = false;
-        private float speed = 25.0f;
+
+        private void Start()
+        {
+            startPosition = PlayerManager.Instance.transform.position;
+        }
 
         private void Update()
         {
@@ -70,6 +79,7 @@ namespace Team13.Round1.TornadoHero
         {
             if (other.transform.CompareTag("PlayerB"))
             {
+                catchPosition = other.transform.position;
                 Destroy(other.gameObject);
                 hasCatch = true;
             }
@@ -77,27 +87,33 @@ namespace Team13.Round1.TornadoHero
 
         private void ResumePath()
         {
-            if (partCount > 0)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, ropes[partCount-1].transform.position,
-                    speed * Time.deltaTime);
-                partCount -= 1;
-            }
-            else
-            {
-                hasCatch = false;
-                hasResume = true;
-            }
+            StartCoroutine(StartResumePath());
         }
 
-        IEnumerator SpawnRope(float TimeBetween)
+        IEnumerator StartResumePath()
+        {
+            float timeElapsed = 0f;
+
+            while (timeElapsed < resumeDuration)
+            {
+                transform.position = Vector3.Lerp(catchPosition, startPosition, timeElapsed / resumeDuration);
+                timeElapsed += Time.deltaTime;
+
+                yield return null;
+            }
+            hasCatch = false;
+            hasResume = true;
+            transform.position = startPosition;
+        }
+
+        IEnumerator SpawnRope(float timeBetween)
         {
             while (partCount <= maxPartCount && !hasCatch)
             {
                 GameObject rope = Instantiate(RopePrefab, transform.position, quaternion.identity);
                 ropes.Add(rope);
                 partCount += 1;
-                yield return new WaitForSeconds(TimeBetween);
+                yield return new WaitForSeconds(timeBetween);
             }
         }
     }

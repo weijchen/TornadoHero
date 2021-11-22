@@ -6,24 +6,25 @@ namespace Team13.Round1.TornadoHero
 {
     public class ShouldBlow : MonoBehaviour
     {
-        private float startTime;
+        [SerializeField] private float blowTime = 3.0f;
+        
         private float SpeedAdjust = 0.9f;
+        private float timer = 0f;
         private CapsuleCollider capsuleCollider;
 
-        [SerializeField] private float blowTime = 3.0f;
         public bool shouldBlow;
 
         void Start()
         {
             shouldBlow = false;
-            startTime = Time.time;
             capsuleCollider = GetComponent<CapsuleCollider>();
         }
 
         void Update()
         {
-            if (Time.time - startTime <= blowTime)
+            if (timer <= blowTime)
             {
+                timer += Time.deltaTime;
                 transform.Translate(Vector3.forward * Time.deltaTime * SpeedAdjust, Space.World);
             }
             else

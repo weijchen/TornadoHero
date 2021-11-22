@@ -17,8 +17,8 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] public int startSpawnObstacle = 40;
         [SerializeField] public int startSpawnETC = 20;
         [SerializeField] private int saveMultiplier = 1000;
-        [SerializeField] private int hitMultiplier = 500;
-        [SerializeField] private int comboMultiplier = 2;
+        [SerializeField] private int hitMultiplier = 100;
+        [SerializeField] public int comboMultiplier = 10;
 
         [Header("Tornado")]
         [SerializeField] private GameObject tornadoObject;
@@ -94,7 +94,6 @@ namespace Team13.Round1.TornadoHero
 
             skyPeopleIsSpawning = true;
 
-            // obstacles spawning
             if (gameTimer < startSpawnObstacle)
             {
                 if (!obstacleIsSpawning)
@@ -105,7 +104,6 @@ namespace Team13.Round1.TornadoHero
                 obstacleIsSpawning = true;
             }
 
-            // ground people spawning
             if (gameTimer < startSpawnGround)
             {
                 if (!groundPeopleIsSpawning)
@@ -127,13 +125,6 @@ namespace Team13.Round1.TornadoHero
             {
                 gameTimer = 0f;
             }
-        }
-        public void RestartGame()
-        {
-            gameTimer = gameTime;
-            obstacleIsSpawning = false;
-            skyPeopleIsSpawning = false;
-            groundPeopleIsSpawning = false;
         }
 
         private void CheckGameFinish()
@@ -205,7 +196,7 @@ namespace Team13.Round1.TornadoHero
 
         public int GetComboScore()
         {
-            return GetSaveScore() * comboMultiplier;
+            return (PlayerManager.Instance.totalCombo + PlayerManager.Instance.currCombo) * comboMultiplier;
         }
 
         public int GetFinalScore()
@@ -216,24 +207,18 @@ namespace Team13.Round1.TornadoHero
 
         public string GetRank()
         {
-            int finalScore = GetFinalScore();
-
-            if (finalScore >= 10000)
+            var score = GetFinalScore();
+            if (score >= 50000)
             {
                 return "A";
             }
 
-            if (finalScore < 10000 && finalScore >= 5000)
+            if (score >= 30000)
             {
                 return "B";
             }
 
-            if (finalScore < 5000 && finalScore >= 2500)
-            {
-                return "C";
-            }
-
-            return "D";
+            return score >= 10000 ? "C" : "D";
         }
     }
 }

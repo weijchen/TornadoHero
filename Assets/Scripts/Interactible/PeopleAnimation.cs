@@ -14,7 +14,7 @@ namespace Team13.Round1.TornadoHero
 
         void Start()
         {
-            animator = gameObject.GetComponent<Animator>();
+            animator = GetComponent<Animator>();
         }
 
         void Update()

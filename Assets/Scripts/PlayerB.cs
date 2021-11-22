@@ -8,10 +8,10 @@ namespace Team13.Round1.TornadoHero
 {
     public class PlayerB : MonoBehaviour
     {
+        [SerializeField] float destroyTime = 20.0f;
+        
         private Vector3 BornVector = Vector3.zero;
         private bool isSaved = false;
-
-        [SerializeField] float destroyTime = 20.0f;
 
         void Start()
         {

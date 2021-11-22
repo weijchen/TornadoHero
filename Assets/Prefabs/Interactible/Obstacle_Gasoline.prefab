@@ -257,10 +257,10 @@ MonoBehaviour:
   hitMultiplier: 2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   _obstacleFlyingPaths: []
   speed: 7.5
-  arrivedDistance: 0.5
+  destroyDistance: 0.5
   destroyTime: 0.2
 --- !u!1 &6909137683093431241
 GameObject:

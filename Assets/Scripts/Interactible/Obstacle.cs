@@ -15,14 +15,14 @@ namespace Team13.Round1.TornadoHero
         private Rigidbody _rigidbody;
         private List<Transform> pickedPath;
         private int pointIndex;
-        private XRRig playerPosition;
+        private Vector3 playerPosition;
         private bool isHitted = false;
 
         [SerializeField] private float hitMultiplier = 2.0f;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private ObstacleFlyingPath[] _obstacleFlyingPaths;
         [SerializeField] private float speed = 2.0f;
-        [SerializeField] private float arrivedDistance = 0.5f;
+        [SerializeField] private float destroyDistance = 0.5f;
         [SerializeField] private float destroyTime = 0.2f;
 
         private void Awake()
@@ -32,7 +32,7 @@ namespace Team13.Round1.TornadoHero
 
         private void Start()
         {
-            playerPosition = FindObjectOfType<XRRig>();
+            playerPosition = PlayerManager.Instance.transform.position;
             _obstacleFlyingPaths = FindObjectsOfType<ObstacleFlyingPath>();
             PickPath();
         }
@@ -53,7 +53,7 @@ namespace Team13.Round1.TornadoHero
 
         private void Move()
         {
-            if (Vector3.Distance(transform.position, playerPosition.transform.position) <= arrivedDistance)
+            if (Vector3.Distance(transform.position, playerPosition) <= destroyDistance)
             {
                 Destroy(gameObject, destroyTime);
             }
@@ -73,7 +73,7 @@ namespace Team13.Round1.TornadoHero
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, playerPosition.transform.position,
+                transform.position = Vector3.MoveTowards(transform.position, playerPosition,
                     speed * Time.deltaTime);
             }
         }
