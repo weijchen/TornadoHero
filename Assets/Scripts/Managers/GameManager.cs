@@ -196,7 +196,9 @@ namespace Team13.Round1.TornadoHero
 
         public int GetComboScore()
         {
-            return (PlayerManager.Instance.totalCombo + PlayerManager.Instance.currCombo) * comboMultiplier;
+            Debug.Log("here");
+            Debug.Log(PlayerManager.Instance.GetComboAmount());
+            return PlayerManager.Instance.GetComboAmount() * comboMultiplier;
         }
 
         public int GetFinalScore()

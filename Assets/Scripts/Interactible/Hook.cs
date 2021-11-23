@@ -45,6 +45,7 @@ namespace Team13.Round1.TornadoHero
                 ResumePath();
                 SavedPeople.SetActive(true);
             }
+
             if (hasResume)
             {
                 DeleteRope();
@@ -80,6 +81,7 @@ namespace Team13.Round1.TornadoHero
             if (other.transform.CompareTag("PlayerB"))
             {
                 catchPosition = other.transform.position;
+                SoundManager.Instance.PlaySFX(SFXIndex.HookSuccess);
                 Destroy(other.gameObject);
                 hasCatch = true;
             }

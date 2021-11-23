@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
   maxXOffset: 10
-  spawnTime: 2
+  spawnTime: 10
   coroutineIsRunning: 1
 --- !u!4 &86950728
 Transform:
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
   maxXOffset: 10
-  spawnTime: 2
+  spawnTime: 7
   coroutineIsRunning: 1
 --- !u!1 &353722629
 GameObject:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
   maxXOffset: 10
-  spawnTime: 2
+  spawnTime: 10
   coroutineIsRunning: 1
 --- !u!4 &949602371
 Transform:
@@ -833,12 +833,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a7098b398ae50644e8bc9b8b4ee331c0, type: 3}
     - target: {fileID: 4878335752162510326, guid: 944f262fdf1b3bd419baff9d0ca74f03, type: 3}
       propertyPath: sfxList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4878335752162510326, guid: 944f262fdf1b3bd419baff9d0ca74f03, type: 3}
       propertyPath: sfxList.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 54af419b383408e4db3aaa6c5f2994b8, type: 3}
+    - target: {fileID: 4878335752162510326, guid: 944f262fdf1b3bd419baff9d0ca74f03, type: 3}
+      propertyPath: sfxList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: a97ae1a432d72b549a2cdd78b2896509, type: 3}
     - target: {fileID: 8143618069790959410, guid: 944f262fdf1b3bd419baff9d0ca74f03, type: 3}
       propertyPath: m_Name
       value: Sound Manager
@@ -908,7 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   peoplePrefab: {fileID: 4698629371184606789, guid: dc53a16a5ea887a4aa0fa692c082eee3, type: 3}
   maxXOffset: 10
-  spawnTime: 2
+  spawnTime: 7
   coroutineIsRunning: 1
 --- !u!4 &1551402635
 Transform:
@@ -1037,6 +1041,10 @@ PrefabInstance:
       propertyPath: tornadoObject
       value: 
       objectReference: {fileID: 229892437}
+    - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
+      propertyPath: comboMultiplier
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3900458156452017743, guid: b86b859a6d8127d46aaaf6671dd4a1e6, type: 3}
       propertyPath: _obstacleSpawner
       value: 
@@ -1479,6 +1487,10 @@ PrefabInstance:
     - target: {fileID: 7337789652841382043, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337789652912683424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
+      propertyPath: spawnTime
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7337789652912683424, guid: 8d894f46dc47f2346b01d3c07c28c758, type: 3}
       propertyPath: obstacleComingEffect

@@ -20,16 +20,19 @@ namespace Team13.Round1.TornadoHero
         void Update()
         {
             SetRigidBodyConstraint();
-        
-            if (parent.transform.position.y > transformDistance)
+
+            if (parent != null)
             {
-                isGrounded = false;
-                animator.SetBool("OnGround", false);
-            }
-            else
-            {
-                isGrounded = true;
-                animator.SetBool("OnGround", true);
+                if (parent.transform.position.y > transformDistance)
+                {
+                    isGrounded = false;
+                    animator.SetBool("OnGround", false);
+                }
+                else
+                {
+                    isGrounded = true;
+                    animator.SetBool("OnGround", true);
+                }
             }
         }
 
@@ -37,7 +40,8 @@ namespace Team13.Round1.TornadoHero
         {
             if (isGrounded)
             {
-                parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                if (parent != null)
+                    parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
         }
     }

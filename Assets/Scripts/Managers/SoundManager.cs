@@ -15,7 +15,8 @@ namespace Team13.Round1.TornadoHero
     {
         Tornado = 0,
         Hit = 1,
-        HookSpawn = 2
+        HookSpawn = 2,
+        HookSuccess = 3
     }
     
     public enum VOIndex : int

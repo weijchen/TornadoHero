@@ -18,15 +18,15 @@ namespace Team13.Round1.TornadoHero
         [SerializeField] public GameObject obstacleComingEffect;
         [SerializeField] private bool toSave = false; 
 
-        static private int savedAmount = 0;
-        static private int deadAmount = 0;
-        static private int hitAmount = 0;
+        private static int savedAmount = 0;
+        private static int deadAmount = 0;
+        private static int hitAmount = 0;
+        private static int currCombo = 0;
+        private static int totalCombo = 0;
 
         private bool isStunned = false;
         private float accumTime = 0f;
         private int finalScore = 0;
-        public int currCombo = 0;
-        public int totalCombo = 0;
         public bool canSpawnBat = false;
 
         private void Awake()
@@ -88,12 +88,18 @@ namespace Team13.Round1.TornadoHero
         public void TurnStunned()
         {
             totalCombo += currCombo;
+            Debug.Log(totalCombo);
             currCombo = 0;
             isStunned = true;
             stunnedEffect.gameObject.SetActive(true);
             obstacleComingEffect.gameObject.SetActive(false);
             _xrDirectInteractorL.enabled = false;
             _xrDirectInteractorR.enabled = false;
+        }
+
+        public int GetComboAmount()
+        {
+            return totalCombo + currCombo;
         }
 
         public void StunnedRecover()
